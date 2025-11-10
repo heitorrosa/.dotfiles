@@ -150,6 +150,9 @@ window_rules:
       - window_process: { equals: 'Trackmania' }
       - window_process: { equals: 'FragPunk' }
       - window_process: { equals: 'RocketLeague' }
+      - window_process: { equals: 'GenshinImpact' }
+      - window_process: { equals: 'hollow_knight' }
+      - window_process: { equals: 'deadlock' }
       - window_title: { equals: 'Minecraft' }
       - window_title: { equals: 'Roblox' }
       
@@ -277,7 +280,7 @@ keybindings:
   - commands: ['shell-exec C:\Program Files\PowerShell\7\pwsh.exe']
     bindings: ['alt+enter']
 
-  - commands: ['shell-exec D:\Program Files\VS Code\Code.exe']
+  - commands: ['shell-exec C:\Program Files\Microsoft VS Code\Code.exe']
     bindings: ['alt+c']
 
   - commands: ['shell-exec %localappdata%\Thorium\Application\thorium.exe']
