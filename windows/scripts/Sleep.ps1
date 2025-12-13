@@ -1,0 +1,2 @@
+powercfg /setacvalueindex SCHEME_CURRENT SUB_VIDEO VIDEOCONLOCK 0
+powercfg /setactive SCHEME_CURRENT

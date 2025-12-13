@@ -153,12 +153,16 @@ window_rules:
       - window_process: { equals: 'GenshinImpact' }
       - window_process: { equals: 'hollow_knight' }
       - window_process: { equals: 'deadlock' }
+      - window_process: { equals: 'REPO' }
+      - window_process: { equals: 'Among Us' }
+      - window_process: { equals: 'FortniteClient-Win64-Shipping' }
       - window_title: { equals: 'Minecraft' }
       - window_title: { equals: 'Roblox' }
       
       # Ignore certain programs
       - window_title: { equals: 'Task Manager' }
       - window_title: { equals: 'Calculator' }
+      - window_title: { equals: 'LocalSend' }
       - window_title: { equals: 'WhatsApp' }
       - window_process: { equals: 'WhatsApp' }
 
