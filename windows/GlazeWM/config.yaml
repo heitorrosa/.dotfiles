@@ -165,6 +165,9 @@ window_rules:
       - window_title: { equals: 'LocalSend' }
       - window_title: { equals: 'WhatsApp' }
       - window_process: { equals: 'WhatsApp' }
+      - window_process: { equals: 'VirtualBox' }
+      - window_process: { equals: 'VirtualBoxVM' }
+      - window_process: { equals: 'Spotify' }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
