@@ -156,6 +156,8 @@ window_rules:
       - window_process: { equals: 'REPO' }
       - window_process: { equals: 'Among Us' }
       - window_process: { equals: 'FortniteClient-Win64-Shipping' }
+      - window_process: { equals: 'BetGame.exe' }
+      - window_process: { equals: 'BETGameSteam-Win64-Shipping.exe' }
       - window_title: { equals: 'Minecraft' }
       - window_title: { equals: 'Roblox' }
       
@@ -284,10 +286,10 @@ keybindings:
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
 
-  - commands: ['shell-exec C:\Program Files\PowerShell\7\pwsh.exe']
+  - commands: ['shell-exec pwsh']
     bindings: ['alt+enter']
 
-  - commands: ['shell-exec C:\Program Files\Microsoft VS Code\Code.exe']
+  - commands: ['shell-exec code']
     bindings: ['alt+c']
 
   - commands: ['shell-exec %localappdata%\Thorium\Application\thorium.exe']

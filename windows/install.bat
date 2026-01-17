@@ -110,20 +110,24 @@ powershell Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.Service
 %choco% install chocolatey-core.extension
 
 :: Dependancies and Drivers
-%choco% install nvidia-display-driver --params "/MSVCRT"
+%choco% install nvidia-display-driver --params "/MSVCRT /ShadowPlay /NVApp /NoAudio /NoUSBC"
 
 %choco% install directx
 %choco% install vcredist-all
 %choco% install dotnet-all
 
+%choco% install python
+
 %choco% install 7zip
 %choco% install git
+
+%choco% install hwinfo
 
 :: Terminal Emulator
 %choco% install powershell-core --install-arguments='"DISABLE_TELEMETRY=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1"
 
-:: Neofetch, but for windows
-%choco% install winfetch --params "'/AddToUserPath:yes /AddToSystemPath:no'"
+:: Fastfetch
+%choco% install fastfetch
 
 :: Everything
 %choco% install everything --params "/run-on-system-startup /client-service"
@@ -136,8 +140,9 @@ powershell Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.Service
 %choco% install everythingcmdpal --ignore-checksums
 %choco% install glazewm
 
-:: Remote Access Tool (Parsec)
+:: Remote Access Tool (Parsec and Apollo)
 %choco% install parsec --ignore-checksums
+%choco% install apollo
 
 :: VPN
 %choco% install tailscale
@@ -145,16 +150,17 @@ powershell Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.Service
 :: Programs
 %choco% install discord
 %choco% install thorium
-%choco% install obs-studio
+
+%choco% install mysql.workbench
 
 :: MSI Afterburner
-curl -g -k -L -# -o "C:\Windows\Temp\MSI Afterburner.zip" "https://www.guru3d.com/getdownload/2c1b2414f56a6594ffef91236a87c0e976d52e0518b43f3846bab016c2f20c7c4d6ce7dfe19a0bc843da8d448bbb670058b0c9ee9a26f5cf49bc39c97da070e6eb314629af3da2d24ab0413917f73b946419b5af447da45cefb517a0840ad3003abff4f9d5fe7828bbbb910ee270b20632035fba6a450da22325b6bc5b6ecf760e598e0a09bb89139806376c01a72748cf45d6a798a241ec0787b63b8696336ce1e485eef0fbcdb6340fa3d74b142d1660f4038f9b6a10bd4d30634e03bb2790016d3b73e764a02a0e1d0633216fa76c5c1a0f8ee6671f41415a"
+:: curl -g -k -L -# -o "C:\Windows\Temp\MSI Afterburner.zip" "https://www.guru3d.com/getdownload/2c1b2414f56a6594ffef91236a87c0e976d52e0518b43f3846bab016c2f20c7c4d6ce7dfe19a0bc843da8d448bbb670058b0c9ee9a26f5cf49bc39c97da070e6eb314629af3da2d24ab0413917f73b946419b5af447da45cefb517a0840ad3003abff4f9d5fe7828bbbb910ee270b20632035fba6a450da22325b6bc5b6ecf760e598e0a09bb89139806376c01a72748cf45d6a798a241ec0787b63b8696336ce1e485eef0fbcdb6340fa3d74b142d1660f4038f9b6a10bd4d30634e03bb2790016d3b73e764a02a0e1d0633216fa76c5c1a0f8ee6671f41415a"
 
-"C:\Program Files\7-Zip\7z.exe" e "C:\Windows\Temp\MSI Afterburner.zip" -oC:\Windows\Temp *.exe -r
-"C:\Windows\Temp\MSIAfterburnerSetup466Beta3.exe" /S
+:: "C:\Program Files\7-Zip\7z.exe" e "C:\Windows\Temp\MSI Afterburner.zip" -oC:\Windows\Temp *.exe -r
+:: "C:\Windows\Temp\MSIAfterburnerSetup466Beta3.exe" /S
 
-del /f "C:\Windows\Temp\MSI Afterburner.zip"
-del /f "C:\Windows\Temp\MSIAfterburnerSetup466Beta3.exe"
+:: del /f "C:\Windows\Temp\MSI Afterburner.zip"
+:: del /f "C:\Windows\Temp\MSIAfterburnerSetup466Beta3.exe"
 
 ::----------------------------------------------------------------
 
@@ -278,8 +284,8 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "AltSnap" /t REG
 ::
 :: Restore MSI Afterburner Settings
 ::
-set "CURRENT_DIR=%cd%"
-xcopy "%CURRENT_DIR%\windows\MSI Afterburner\Profiles\" "C:\Program Files (x86)\MSI Afterburner\Profiles\" /y
+:: set "CURRENT_DIR=%cd%"
+:: xcopy "%CURRENT_DIR%\windows\MSI Afterburner\Profiles\" "C:\Program Files (x86)\MSI Afterburner\Profiles\" /y
 
 
 
