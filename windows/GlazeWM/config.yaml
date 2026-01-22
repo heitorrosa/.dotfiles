@@ -158,6 +158,9 @@ window_rules:
       - window_process: { equals: 'FortniteClient-Win64-Shipping' }
       - window_process: { equals: 'BetGame.exe' }
       - window_process: { equals: 'BETGameSteam-Win64-Shipping.exe' }
+      - window_process: { equals: 'TheFarmerWasReplaced' }
+      - window_process: { equals: 'PEAK' }
+      - window_process: { equals: 'aces' }
       - window_title: { equals: 'Minecraft' }
       - window_title: { equals: 'Roblox' }
       
@@ -170,6 +173,7 @@ window_rules:
       - window_process: { equals: 'VirtualBox' }
       - window_process: { equals: 'VirtualBoxVM' }
       - window_process: { equals: 'Spotify' }
+      - window_process: { equals: 'Soundpad' }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
@@ -286,10 +290,10 @@ keybindings:
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
 
-  - commands: ['shell-exec pwsh']
+  - commands: ['shell-exec pwsh -NoExit -File C:\Users\Administrator\.files\windows\profile.ps1']
     bindings: ['alt+enter']
 
-  - commands: ['shell-exec code']
+  - commands: ['shell-exec C:\Program Files\Microsoft VS Code\Code.exe']
     bindings: ['alt+c']
 
   - commands: ['shell-exec %localappdata%\Thorium\Application\thorium.exe']
