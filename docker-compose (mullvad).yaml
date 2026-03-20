@@ -1,0 +1,63 @@
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - VPN_SERVICE_PROVIDER=mullvad
+      - VPN_TYPE=wireguard
+      - SERVER_HOSTNAME=ch-zrh-wg-001
+
+      - WIREGUARD_PRIVATE_KEY=${MULLVAD_PRIVATE_KEY}
+      - WIREGUARD_ADDRESSES=${MULLVAD_ADDRESS}
+
+      - DOT=off
+      - DNS_ADDRESS=10.64.0.7
+      
+      - FIREWALL=off
+    volumes:
+      - /lib/modules:/lib/modules:ro
+    restart: unless-stopped
+
+  tailscale:
+    image: tailscale/tailscale:latest
+    container_name: tailscale
+    network_mode: "service:gluetun"
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      - TS_AUTHKEY=${TS_AUTHKEY}
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_EXTRA_ARGS=--advertise-exit-node --hostname=mullvad
+      - TS_USERSPACE=false
+    volumes:
+      - ./tailscale-data:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+      - /lib/modules:/lib/modules:ro
+    restart: unless-stopped
+
+  alpine:
+    image: alpine:latest
+    container_name: alpine
+    network_mode: "service:gluetun"
+    cap_add:
+      - NET_ADMIN
+    command: >
+      sh -c "apk add --no-cache iptables iproute2 &&
+             echo 'Waiting for tun0...' &&
+             while ! ip link show tun0 > /dev/null 2>&1; do sleep 1; done &&
+             sleep 5 &&
+             echo 'Applying firewall and routing fixes...' &&
+             iptables -P FORWARD ACCEPT &&
+             iptables -P INPUT ACCEPT &&
+             iptables -P OUTPUT ACCEPT &&
+             iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE &&
+             ip rule add to 100.64.0.0/10 priority 99 lookup 52 || true &&
+             echo 'Fixes applied successfully!' &&
+             sleep infinity"
+    restart: unless-stopped
