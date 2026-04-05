@@ -1,0 +1,6 @@
+[wsl2]
+memory=4GB
+swap=0
+
+[experimental]
+autoMemoryReclaim=gradual

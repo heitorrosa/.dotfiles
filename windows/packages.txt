@@ -5,6 +5,7 @@ vcredlist-all
 dotnet-all
 netfx-all
 
+geforce-game-ready-driver
 cuda
 
 7zip
@@ -14,7 +15,9 @@ adb
 putty
 ffmpeg
 mpv
+mp3tag
 powershell-core
+geekuninstaller
 
 tailscale
 openvpn-connect
@@ -24,6 +27,7 @@ parsec
 localsend
 
 hwinfo
+msiafterburner
 
 everything
 everythingpowertoys
@@ -34,11 +38,17 @@ powertoys
 fastfetchs
 
 thorium
+discord
 spotify
 vscode
+opencode
 
 python
 java
 openjdk-25
 nodejs
+msys2
+make
+camke
+docker-desktop
 mysql.workbench
