@@ -27,3 +27,5 @@ function reload { . $PROFILE; Write-Host "Profile Reloaded!" -ForegroundColor Cy
 
 Set-Alias -Name gsudo -Value "C:\tools\gsudo\Current\gsudo.exe"
 Set-Alias -Name sudo -Value "C:\tools\gsudo\Current\gsudo.exe"
+
+Set-Alias -Name m -Value make
