@@ -1,5 +1,6 @@
 chocolatey-core.extension
 
+gsudo
 directx
 vcredlist-all
 dotnet-all
