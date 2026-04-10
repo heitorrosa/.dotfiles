@@ -21,6 +21,7 @@ powershell-core
 geekuninstaller
 
 tailscale
+wireguard
 openvpn-connect
 qbittorrent
 apollo
