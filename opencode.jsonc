@@ -5,7 +5,8 @@
     "opencode-power-pack@git+https://github.com/waybarrios/opencode-power-pack.git",
     "oh-my-opencode-slim",
     "@tarquinen/opencode-dcp",
-    "opencode-background-agents"
+    "opencode-background-agents",
+    "context-mode"
   ],
   "mcp": {
     "context-mode": {
@@ -45,5 +46,6 @@
   }
 }
 
+// npm install -g context-mode
 // pip install graphify && graphify install --platform opencode
 // pip install markitdown
