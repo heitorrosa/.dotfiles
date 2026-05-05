@@ -52,5 +52,9 @@ nodejs
 msys2
 make
 camke
+bun
 docker-desktop
 mysql.workbench
+
+audiorelay
+choco install -y --name=audioshare --version=0.0.13 --source="https://github.com/mkckr0/audio-share/releases/latest"

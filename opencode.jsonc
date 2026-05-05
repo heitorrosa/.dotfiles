@@ -1,0 +1,49 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    "opencode-power-pack@git+https://github.com/waybarrios/opencode-power-pack.git",
+    "oh-my-opencode-slim",
+    "@tarquinen/opencode-dcp",
+    "opencode-background-agents",
+  ],
+  "mcp": {
+    "context-mode": {
+      "type": "local",
+      "command": ["context-mode"]
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "memory": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
+    },
+    "duckduckgo": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "duckduckgo-mcp-server"]
+    },
+    "fetch": {
+      "type": "local",
+      "enabled": true,
+      "command": ["python", "-m", "mcp_server_fetch"]
+    },
+    "playwright": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "@playwright/mcp@latest"]
+    },
+    "markitdown": {
+      "type": "local",
+      "enabled": true,
+      "command": ["python", "-m", "markitdown.mcp_server"]
+    }
+  }
+}
+
+// pip install graphify && graphify install --platform opencode
+// pip install markitdown
