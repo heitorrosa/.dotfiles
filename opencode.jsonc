@@ -23,11 +23,6 @@
       "enabled": true,
       "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
     },
-    "duckduckgo": {
-      "type": "local",
-      "enabled": true,
-      "command": ["npx", "-y", "duckduckgo-mcp-server"]
-    },
     "fetch": {
       "type": "local",
       "enabled": true,
