@@ -32,15 +32,10 @@
       "type": "local",
       "enabled": true,
       "command": ["npx", "-y", "@playwright/mcp@latest"]
-    },
-    "markitdown": {
-      "type": "local",
-      "enabled": true,
-      "command": ["python", "-m", "markitdown.mcp_server"]
     }
   }
 }
 
 // npm install -g context-mode
+// pip install mcp_server_fetch
 // pip install graphify && graphify install --platform opencode
-// pip install markitdown
