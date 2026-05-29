@@ -1,0 +1,4 @@
+- [ ] Better subagent delegation
+- [ ] Improve the CoT reasoning
+- [ ] Make a plugin for agent delegation with skills
+- [ ] Auto refreshable skills
