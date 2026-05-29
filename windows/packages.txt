@@ -17,12 +17,12 @@ putty
 ffmpeg
 mpv
 mp3tag
+file-converter
 powershell-core
+sysinternals
 geekuninstaller
 
 tailscale
-wireguard
-openvpn-connect
 qbittorrent
 apollo
 parsec
@@ -37,7 +37,7 @@ glazewm
 altsnap
 windhawk
 powertoys
-fastfetchs
+fastfetch
 
 thorium
 discord
@@ -45,16 +45,20 @@ spotify
 vscode
 opencode
 
-python
-java
+hydralauncher
+steam
+epicgameslauncher
+prismlauncher
+
+python313
 openjdk-25
 nodejs
 msys2
 make
-camke
+cmake
 bun
 docker-desktop
 mysql.workbench
+pgadmin4
 
 audiorelay
-choco install -y --name=audioshare --version=0.0.13 --source="https://github.com/mkckr0/audio-share/releases/latest"

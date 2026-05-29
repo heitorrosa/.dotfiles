@@ -168,6 +168,9 @@ window_rules:
       - window_process: { equals: 'ch5_pro-Win64-Shipping' }
       - window_process: { equals: 'Deduction' }
       - window_process: { equals: 'hoi4' }
+      - window_process: { equals: 'KSP_x64' }
+      - window_process: { equals: 'StarRail' }
+
       - window_title: { equals: 'Minecraft' }
       - window_title: { equals: 'Roblox' }
       
@@ -297,7 +300,7 @@ keybindings:
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
 
-  - commands: ['shell-exec pwsh -NoExit -File C:\Users\Administrator\.dotfiles\windows\profile.ps1']
+  - commands: ['shell-exec pwsh -NoExit -File C:\Users\Administrator\.files\windows\profile.ps1']
     bindings: ['alt+enter']
 
   - commands: ['shell-exec C:\Program Files\Microsoft VS Code\Code.exe']

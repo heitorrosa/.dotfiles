@@ -1,5 +1,5 @@
 [wsl2]
-memory=4GB
+memory=6GB
 swap=0
 
 [experimental]
