@@ -23,13 +23,22 @@
     "context-mode": {
       "type": "local",
       "enabled": true,
-      "command": ["context-mode"],
-      "args": ["--ignore", "node_modules,.git,dist,build,package-lock.json,.pnpm-store"]
+      "command": [
+        "context-mode"
+      ],
+      "args": [
+        "--ignore",
+        "node_modules,.git,dist,build,package-lock.json,.pnpm-store"
+      ]
     },
     "sequential-thinking": {
       "type": "local",
       "enabled": true,
-      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
     },
     "websearch": {
       "type": "remote",
@@ -39,12 +48,20 @@
     "fetch": {
       "type": "local",
       "enabled": true,
-      "command": ["python", "-m", "mcp_server_fetch"]
+      "command": [
+        "python",
+        "-m",
+        "mcp_server_fetch"
+      ]
     },
     "playwright": {
       "type": "local",
       "enabled": true,
-      "command": ["npx", "-y", "@playwright/mcp@latest"]
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
+      ]
     },
     "grep_app": {
       "type": "remote",

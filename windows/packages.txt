@@ -48,6 +48,7 @@ opencode
 hydralauncher
 steam
 epicgameslauncher
+bedrock-launcher
 prismlauncher
 
 python313

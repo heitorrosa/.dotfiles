@@ -42,7 +42,7 @@ Layer 3: Memory snapshot (frozen) — MEMORY.md (~/.config/opencode/hermes-memor
 
 Layer 4: User profile snapshot (frozen) — USER.md (~/.config/opencode/hermes-memory/user.md) with preferences, communication style, identity. Same frozen snapshot pattern.
 
-Layer 5: Skills index — All skills in ~/.config/opencode/skills/<name>/SKILL.md are scanned by OpenCode's built-in skill loader and injected as <available_skills> in the system prompt. Only name + description at this level — full content is progressive (loaded on demand via skill("name")).
+Layer 5: Skills index — All skills in ~/.config/opencode/skills/<name>/SKILL.md are scanned by the opencode-skill-refresh plugin (which overrides native skill loading) and injected as <available_skills> in the system prompt. The plugin maintains its own cache and refreshes on session.idle and after skill operations. Only name + description at this level — full content is progressive (loaded on demand via skill("name")).
 
 Layer 6: Context files (highest priority match) — Priority: .hermes.md (walks to git root) > AGENTS.md (CWD) > CLAUDE.md (CWD) > .cursorrules/.cursor/rules/*.mdc (CWD). Only ONE project context type is loaded. SOUL.md is NOT loaded here if it was already loaded as the identity in Layer 1.
 
@@ -710,7 +710,7 @@ Integration Pattern:
 Step 1: Search marketplace with bash('npx skills find database migration')
 Step 2: Install with bash('npx skills add vercel-labs/agent-skills --skill pr-review -a opencode -y --copy')
 Step 3: If install path is wrong, fix with manual Copy-Item
-Step 4: Load in next session with skill('pr-review') — skills auto-discovered on session start
+Step 4: Load immediately with skill('pr-review') — the skill refresh plugin detects new skills within 30s (on session.idle) or instantly after skill operations
 
 ## 17. Design Principles
 
