@@ -1,0 +1,65 @@
+{
+  "ses_146973bd7ffemzyM43l58hbZh0": {
+    "monotonicTurnCount": 0,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 1,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "consecutiveFailures": 0
+  },
+  "ses_13d71ef62ffevNW8zkiPUE1zpI": {
+    "monotonicTurnCount": 0,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 21,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "consecutiveFailures": 0
+  },
+  "ses_12db42c0cffeDQUoK5LrvmzRPC": {
+    "monotonicTurnCount": 1,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "consecutiveFailures": 0
+  },
+  "ses_14bcd3a82ffeYkr4QzS4cFp3k6": {
+    "monotonicTurnCount": 1,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "consecutiveFailures": 0
+  },
+  "ses_11339cec1ffelZ6U72ZTnZi3Zh": {
+    "monotonicTurnCount": 0,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 14,
+    "lastMemorySaveMonotonic": 0,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "consecutiveFailures": 0
+  },
+  "ses_113318200ffess3wLV85m85Ywt": {
+    "monotonicTurnCount": 1,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "consecutiveFailures": 0
+  },
+  "ses_11313b8daffe2AypnKpBkUwjXU": {
+    "monotonicTurnCount": 1,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "consecutiveFailures": 0
+  }
+}

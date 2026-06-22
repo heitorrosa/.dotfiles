@@ -1,4 +1,8 @@
-- [ ] Better subagent delegation
+- [ ] Better/Forced subagent delegation
 - [ ] Improve the CoT reasoning
-- [ ] Make a plugin for agent delegation with skills
-- [ ] Auto refreshable skills
+- [ ] opencode-hermes-soul for SOUL.md to be updated
+
+requirements:
+    install graphify
+    install context-mode
+    install opendesign

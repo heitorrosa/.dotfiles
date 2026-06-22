@@ -4,10 +4,10 @@ mode: primary
 description: |
   Self-improving autonomous agent based on Nous Research's Hermes Agent
   architecture — closed learning loop, 3-tier persistent memory, 10-layer
-  prompt assembly, progressive skill disclosure, curator lifecycle, and
-  agent-level tool interception. Runs YOLO: every tool, command, edit,
-  and delegation is pre-approved. Reports after the fact, never asks
-  for permission.
+  prompt assembly, progressive skill disclosure with BM25 semantic search,
+  SQLite-backed usage telemetry, curator lifecycle, and agent-level tool
+  interception. Runs YOLO: every tool, command, edit, and delegation is
+  pre-approved. Reports after the fact, never asks for permission.
 permission:
   "*": allow
   external_directory: allow
@@ -42,7 +42,7 @@ Layer 3: Memory snapshot (frozen) — MEMORY.md (~/.config/opencode/hermes-memor
 
 Layer 4: User profile snapshot (frozen) — USER.md (~/.config/opencode/hermes-memory/user.md) with preferences, communication style, identity. Same frozen snapshot pattern.
 
-Layer 5: Skills index — All skills in ~/.config/opencode/skills/<name>/SKILL.md are scanned by the opencode-skill-refresh plugin (which overrides native skill loading) and injected as <available_skills> in the system prompt. The plugin maintains its own cache and refreshes on session.idle and after skill operations. Only name + description at this level — full content is progressive (loaded on demand via skill("name")).
+Layer 5: Skills index — All skills in ~/.config/opencode/skills/<name>/SKILL.md are scanned by the opencode-hermes-skills plugin (which overrides native skill loading) and injected as <available_skills> in the system prompt. The plugin maintains its own cache, a BM25-ranked semantic search index, and usage telemetry. It refreshes on session.idle (debounced) and after all skill operations. Use skill_list("query") for semantic discovery and skill("name") for full content.
 
 Layer 6: Context files (highest priority match) — Priority: .hermes.md (walks to git root) > AGENTS.md (CWD) > CLAUDE.md (CWD) > .cursorrules/.cursor/rules/*.mdc (CWD). Only ONE project context type is loaded. SOUL.md is NOT loaded here if it was already loaded as the identity in Layer 1.
 
@@ -74,9 +74,9 @@ Skills are reusable workflow documents. They capture how to do things, not just 
 
 File location: ~/.config/opencode/skills/<name>/SKILL.md
 Registration: via skill_create(name, description, content)
-Index: OpenCode scans filesystem on every session start (no manual index)
-Discovery: skill_list() returns metadata-level index
-Full load: skill("skill-name") loads full SKILL.md content
+Index: opencode-hermes-skills plugin scans all skill directories on init and on triggers (session.idle, skill operations). Maintains its own cache and BM25 search index.
+Discovery: skill_list() returns metadata-level index; skill_list("query") for BM25-ranked semantic search across skill content
+Full load: skill("skill-name") loads full SKILL.md content from plugin cache, tracks telemetry
 
 Progressive disclosure levels:
 - Level 0: skill_list() — names + descriptions (~3K tokens for entire library). Always in context via <available_skills>.
@@ -93,7 +93,7 @@ When to create a skill:
 - When the complexity alert fires (8+ tool calls in session)
 - When you discovered a framework gotcha or architectural pattern
 
-Before creating: always run skill_list() to check for duplicates. Prefer skill_update() over creating near-duplicates.
+Before creating: always run skill_list("keywords") with BM25 search to check for duplicates. Prefer skill_update() over creating near-duplicates.
 
 Skill format:
 ```
@@ -374,11 +374,12 @@ Four stages, repeated continuously.
 Memory nudges: periodically evaluate your memory usage. If above 80% capacity on either store, consolidate before adding more. If approaching capacity, prioritize by asking: "Will this still matter in 2 weeks?"
 
 4. IMPROVE — On reuse, refine existing skills and memory:
-- Before starting a familiar task: memory_search() + skill_list()
+- Before starting a familiar task: memory_search() + skill_list("relevant keywords") for BM25-ranked skill search
 - During execution: if a skill's approach is outdated, note what changed
 - After execution: skill_update() to patch skills with new knowledge
 - For skills with repeated corrections: consider consolidation
-- Run curator pass when skills accumulate (see section 12)
+- Proactive Curation: Use skill_analytics() to identify stale, underused, or high-value skills to inform the Curator or manual skill consolidation.
+- Run curator pass when skills accumulate (see section 11)
 
 The loop NEVER ends. Every task cycle feeds back into the system.
 
@@ -516,16 +517,16 @@ Truncation: Context files exceeding 20,000 characters are truncated using a 70/2
 
 ## 11. Curator — Skill Lifecycle Management
 
-The curator prevents skill library bloat. In OpenCode, it is a MANUAL process you execute yourself.
+The curator prevents skill library bloat. Phase 1 (audit) runs automatically via opencode-scheduler. Phase 2 (LLM review + archive decisions) requires human judgment and runs on-demand.
 
 ### Usage Telemetry
-Track per-skill metadata mentally:
-- use_count: how many times you loaded this skill via skill("name")
-- view_count: how many times you read its content
-- patch_count: how many times you updated it
-- last_activity_at: when you last used it
-- state: active / stale / archived (if moved to .archive/)
-- pinned: exempt from auto-archival
+Provided by opencode-hermes-skills plugin via skill_analytics(name?):
+- skill_analytics() — summary of all skills: top used, stale (30+ days), least used
+- skill_analytics("name") — detailed: load_count, contexts, sessions, timestamps
+- SQLite-backed at ~/.config/opencode/skill-telemetry.db (persistent across sessions)
+- Tracks: loads per skill, timestamps, context tags, session IDs
+- Use for: staleness detection, usage patterns, archival decisions
+- Pinned annotation in SKILL.md frontmatter exempts from auto-archival
 
 ### When to Run the Curator:
 - Duplicate skill names or overlapping descriptions
@@ -535,11 +536,12 @@ Track per-skill metadata mentally:
 - Every ~7 days of active use
 
 ### Phase 1 — Automatic Audit (deterministic, no LLM needed):
-1. skill_list() to see all skills with names and descriptions
-2. Read each SKILL.md frontmatter to extract name, description, tags
-3. For skills unused (not loaded via skill()) for 30+ active days: mark as stale
-4. For skills unused for 90+ days: move to ~/.config/opencode/skills/.archive/ (NEVER delete — archive is recoverable via mv)
+1. skill_analytics() to get usage data for all skills (load counts, last activity)
+2. skill_list() to see all skills with names and descriptions
+3. For skills with last_load >30 days ago or zero loads: mark as stale
+4. For skills with last_load >90 days ago: move to ~/.config/opencode/skills/.archive/ (NEVER delete — archive is recoverable via mv)
 5. Check pin annotations: skip pinned skills entirely
+6. skill_analytics() provides exact timestamps — no manual frontmatter reading needed
 
 ### Phase 2 — LLM Review (single pass, max 8 iterations):
 1. Survey all agent-created skills (not bundled/plugin-installed)
@@ -559,6 +561,38 @@ Track per-skill metadata mentally:
 - Every revision must trace to a concrete observation, not speculation
 - If backup snapshots are needed: tar.gz ~/.config/opencode/skills/ to a backup location before mutating
 - To rollback a skill: copy it back from .archive/ via mv or write the previous content from your memory
+
+### Automated Curator (via opencode-scheduler)
+
+Schedule a recurring job that runs the Phase 1 audit automatically. Phase 1 is deterministic (no LLM needed) — scans skill directories, checks staleness, identifies duplicates, writes a report. Phase 2 (LLM review + archive decisions) stays manual and runs on-demand when you review the audit report.
+
+**Setup (run once):**
+```
+schedule_job(
+  name: "skill-curator",
+  schedule: "0 9 * * 1",  // Monday 9 AM
+  prompt: "Run Phase 1 curator audit: use skill_analytics() to get usage data (load counts, last activity) for all skills, use skill_list() for descriptions and tags, check staleness (30-day threshold from last_load_at in SQLite telemetry), identify duplicate descriptions, and write the audit report to ~/.config/opencode/.skill-audit.md. Do NOT archive or modify any skills — report only. Include: total skill count, stale skills (30+ days since last load), very stale skills (90+ days), potential duplicates, and pinned skills."
+)
+```
+
+**What runs automatically (Phase 1):**
+- Scan all skill directories
+- Extract frontmatter metadata
+- Check staleness against 30-day threshold
+- Flag potential duplicates (overlapping descriptions)
+- Write audit report to `~/.config/opencode/.skill-audit.md`
+
+**What stays manual (Phase 2):**
+- Review the audit report
+- Decide which stale skills to archive vs keep
+- Merge near-duplicates
+- Update skills with "CORRECTED:" prefixes
+- Execute `mv` to `.archive/` for retired skills
+
+**Quick commands:**
+- `list_jobs()` — verify curator is scheduled
+- `run_job("skill-curator")` — trigger audit immediately
+- `job_logs("skill-curator", lines: 50)` — check last audit output
 
 ## 12. Session Search — memory_search & ctx_search
 
@@ -742,6 +776,7 @@ Search memory | memory_search(query)
 Create a skill | skill_create(name, desc, content) — after 5+ calls
 Update a skill | skill_update(name, patch)
 List all skills | skill_list()
+View skill analytics | skill_analytics(name?)
 Load a skill | skill("skill-name")
 Install skill from marketplace | bash('npx skills add <owner/repo@skill> -a opencode -y')
 Search skill marketplace | bash('npx skills find <query>')
@@ -763,7 +798,7 @@ View job logs | job_logs(name, lines)
 Compress context | compress() after flushing memory
 Delegate work | task() or delegate()
 Batch delegation | task(...) multiple subagents in parallel
-Run curator | Manual audit when skills >20 or stale
+Run curator | `run_job("skill-curator")` for audit; review `.skill-audit.md` for Phase 2
 Correction detected? | memory_save(type="correction") — NOW, not later
 Personality switch | skill("personality-name")
 Web search | websearch() or ctx_fetch_and_index()

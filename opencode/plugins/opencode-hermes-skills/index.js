@@ -1,33 +1,80 @@
-// opencode-skill-refresh.js
-// Silently refreshes skill metadata and provides custom skill/skill_list tools
-// that override the native frozen cache.
+// skill-engine/index.js
+// Provides custom skill/skill_list/skill_analytics tools with BM25 search
+// and usage telemetry. Overrides native frozen skill cache.
 
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
+import { BM25Index } from './bm25-index.js';
+import { getTelemetry } from './skill-telemetry.js';
 
 // Cache: Map<name, { name, description, path, content, dir }>
 let skillCache = new Map();
 let lastRefreshTime = 0;
 const DEBOUNCE_MS = 30000;
 
+// BM25 index and telemetry (initialized on first refresh)
+let bm25 = null;
+let telemetry = null;
+
 // --- Utility ---
 
+/**
+ * Parse YAML frontmatter from skill content.
+ * FIXED (BUG-007): Handle multiline YAML values using | and > syntax.
+ * Previously: Only captured single-line values, breaking on multiline descriptions.
+ * Fix: Detect | (literal block) and > (folded block) indicators and collect
+ * indented continuation lines until a non-indented line or end of frontmatter.
+ */
 function parseSkillFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return null;
   const yaml = match[1];
   const result = {};
-  for (const line of yaml.split('\n')) {
+  const lines = yaml.split('\n');
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     const colonIdx = line.indexOf(':');
-    if (colonIdx > 0) {
-      const key = line.slice(0, colonIdx).trim();
-      const value = line.slice(colonIdx + 1).trim();
-      if (key === 'name' || key === 'description') {
-        result[key] = value;
+    if (colonIdx <= 0) continue;
+
+    const key = line.slice(0, colonIdx).trim();
+    if (key !== 'name' && key !== 'description') continue;
+
+    let value = line.slice(colonIdx + 1).trim();
+
+    // FIXED (BUG-007): Handle multiline YAML syntax
+    if (value === '|' || value === '>') {
+      // Literal or folded block — collect indented continuation lines
+      const isLiteral = value === '|';
+      const blockLines = [];
+      i++; // move to first continuation line
+      while (i < lines.length) {
+        const contLine = lines[i];
+        // Empty lines are included in literal blocks, skipped in folded
+        if (contLine.trim() === '') {
+          if (isLiteral) blockLines.push('');
+          i++;
+          continue;
+        }
+        // Check if line is indented (continuation of block)
+        if (/^\s+/.test(contLine)) {
+          blockLines.push(isLiteral ? contLine.trimEnd() : contLine.trim());
+          i++;
+        } else {
+          break; // non-indented line = end of block
+        }
       }
+      value = isLiteral ? blockLines.join('\n') : blockLines.join(' ');
+      i--; // back up one since outer loop will increment
     }
+
+    // FIXED (BUG-013): Strip surrounding quotes from values
+    value = value.replace(/^['"]|['"]$/g, '').trim();
+
+    if (value) result[key] = value;
   }
+
   return result.name ? result : null;
 }
 
@@ -128,20 +175,15 @@ function discoverBundledFiles(skillDir) {
       if (fs.existsSync(subPath) && fs.statSync(subPath).isDirectory()) {
         const entries = fs.readdirSync(subPath, { withFileTypes: true });
         for (const entry of entries) {
-          if (entry.isFile()) {
-            files.push(path.join(sub, entry.name));
-          }
+          if (entry.isFile()) files.push(path.join(sub, entry.name));
         }
       }
     } catch (e) { /* skip */ }
   }
-  // Root-level script files
   try {
     const entries = fs.readdirSync(skillDir, { withFileTypes: true });
     for (const entry of entries) {
-      if (entry.isFile() && /\.(js|ts|py|sh)$/.test(entry.name)) {
-        files.push(entry.name);
-      }
+      if (entry.isFile() && /\.(js|ts|py|sh)$/.test(entry.name)) files.push(entry.name);
     }
   } catch (e) { /* skip */ }
   return files;
@@ -169,17 +211,6 @@ Use this tool to inject the skill's instructions and resources into current conv
 
 The skill name must match one of the skills listed in your system prompt.
 
-Load a specialized skill that provides domain-specific instructions and workflows.
-
-When you recognize that a task matches one of the available skills listed below, use this tool to load the full skill instructions.
-
-The skill will inject detailed instructions, workflows, and access to bundled resources (scripts, references, templates) into the conversation context.
-
-Tool output includes a \`<skill_content name="...">\` block with the loaded content.
-
-The following skills provide specialized sets of instructions for particular tasks
-Invoke this tool to load a skill when a task matches one of the available skills listed below:
-
 ## Available Skills
 `;
   for (const [name, skill] of skills) {
@@ -196,8 +227,21 @@ function handleSkillLoad(args) {
 
   const skill = skillCache.get(name);
   if (!skill) {
+    // Try BM25 search as fallback
+    if (bm25) {
+      const results = bm25.search(name, 3);
+      if (results.length > 0) {
+        const suggestions = results.map(r => r.name).join(', ');
+        return `Skill "${name}" not found. Did you mean: ${suggestions}? Use skill_list("${name}") to search.`;
+      }
+    }
     const available = Array.from(skillCache.keys()).join(', ');
     return `Skill "${name}" not found. Available skills: ${available}`;
+  }
+
+  // FIXED (BUG-010): Single telemetry tracking point only (removed duplicate from tool.execute.after)
+  if (telemetry) {
+    try { telemetry.trackLoad(name, { context: 'manual' }); } catch (e) { /* degrade */ }
   }
 
   let content = `<skill_content name="${escapeXml(skill.name)}">\n`;
@@ -217,13 +261,61 @@ function handleSkillLoad(args) {
   return content;
 }
 
-function handleSkillList() {
+function handleSkillList(args) {
+  const query = args?.query;
+
+  // If query provided, use BM25 search
+  if (query && bm25) {
+    const results = bm25.search(query, 10);
+    if (results.length === 0) return `No skills found matching "${query}".`;
+
+    const lines = [`## Skills matching "${query}"`];
+    for (const r of results) {
+      const skill = skillCache.get(r.name);
+      const desc = skill?.description || '';
+      lines.push(`- **${r.name}** (score: ${r.score.toFixed(2)}): ${desc}`);
+      if (r.snippet) lines.push(`  > ${r.snippet.slice(0, 120)}...`);
+    }
+    return lines.join('\n');
+  }
+
+  // No query: list all skills
   if (skillCache.size === 0) return 'No skills found.';
   const lines = ['## Available Skills'];
   for (const [name, skill] of skillCache) {
     lines.push(`- **${name}**: ${skill.description}`);
   }
+  if (bm25) lines.push(`\n_Tip: Use skill_list("query") to search skills by keyword._`);
   return lines.join('\n');
+}
+
+function handleSkillAnalytics(args) {
+  if (!telemetry) return 'Telemetry not available (SQLite initialization failed).';
+
+  const skillName = args?.name;
+  if (skillName) {
+    const analytics = telemetry.getSkillAnalytics(skillName);
+    if (!analytics || analytics.totalLoads === 0) {
+      return `No telemetry data for "${skillName}".`;
+    }
+    const lines = [
+      `## Analytics: ${analytics.name}`,
+      `Total loads: ${analytics.totalLoads}`,
+      `First seen: ${analytics.firstSeen}`,
+      `Last seen: ${analytics.lastSeen}`,
+      `Load contexts: ${JSON.stringify(analytics.loadContexts)}`,
+    ];
+    if (analytics.recentSessions.length > 0) {
+      lines.push(`Recent sessions:`);
+      for (const s of analytics.recentSessions) {
+        lines.push(`  - ${s.session_id} at ${s.loaded_at}`);
+      }
+    }
+    return lines.join('\n');
+  }
+
+  // No name: summary view
+  return telemetry.getSummary();
 }
 
 // --- Refresh ---
@@ -231,6 +323,16 @@ function handleSkillList() {
 function refreshSkills(ctxDir) {
   if (!shouldRefresh()) return skillCache;
   skillCache = scanSkillDirs(ctxDir);
+
+  // Rebuild BM25 index
+  if (!bm25) bm25 = new BM25Index();
+  bm25.build(skillCache);
+
+  // Take telemetry snapshot
+  if (telemetry) {
+    try { telemetry.takeSnapshot(skillCache); } catch (e) { /* degrade */ }
+  }
+
   return skillCache;
 }
 
@@ -240,11 +342,14 @@ export default async function(input) {
   const { project, directory } = input;
   const ctxDir = directory || project?.root;
 
-  // Initial scan
+  // Initialize telemetry (once)
+  try { telemetry = getTelemetry(); } catch (e) { telemetry = null; }
+
+  // Initial scan + index build
   refreshSkills(ctxDir);
 
   return {
-    // Custom tools: override native skill/skill_list
+    // Custom tools
     tool: {
       skill: {
         description: `Load a specialized skill when the task at hand matches one of the skills listed in the system prompt.
@@ -264,14 +369,40 @@ ${Array.from(skillCache.values()).map(s => `- **${s.name}**: ${s.description}`).
         execute: async (args) => handleSkillLoad(args),
       },
       skill_list: {
-        description: 'List all skills that have been created by the Hermes memory plugin. Use this to see what workflows have been documented so far, or to check if a skill already exists before creating a new one.',
-        parameters: {},
-        execute: async () => handleSkillList(),
+        description: `List all available skills or search them by keyword.
+
+Use skill_list() with no arguments to list all skills.
+Use skill_list("query") to search skills by keyword using BM25 ranking.
+
+The search indexes skill names, descriptions, and full SKILL.md content.`,
+        parameters: {
+          query: {
+            type: 'string',
+            description: 'Optional search query. If omitted, lists all skills. If provided, returns BM25-ranked results matching the query.',
+          },
+        },
+        execute: async (args) => handleSkillList(args),
+      },
+      skill_analytics: {
+        description: `View skill usage analytics and telemetry data.
+
+Call with no arguments for a summary of all skill usage.
+Call with a skill name for detailed analytics on that specific skill.
+
+Returns: load counts, usage trends, staleness, and session context.`,
+        parameters: {
+          name: {
+            type: 'string',
+            description: 'Optional skill name. If omitted, returns summary of all skills.',
+          },
+        },
+        execute: async (args) => handleSkillAnalytics(args),
       },
     },
 
     // Hook: Override native skill tool definition with fresh description
     'tool.definition': async (toolInput, output) => {
+      // FIXED (BUG-009): Normalize field names — use toolID consistently
       if (toolInput.toolID === 'skill') {
         output.description = generateToolDescription(skillCache);
       }
@@ -288,12 +419,28 @@ ${Array.from(skillCache.values()).map(s => `- **${s.name}**: ${s.description}`).
       if (event.type === 'session.idle') refreshSkills(ctxDir);
     },
 
-    // Hook: Refresh after skill operations
+    // Hook: Refresh after skill operations and watch for skill installation
     'tool.execute.after': async (toolInput) => {
-      if (['skill', 'skill_create', 'skill_update'].includes(toolInput.tool)) {
+      const toolName = toolInput.tool || toolInput.toolID;
+
+      // FIXED (BUG-008): Watch Bash tool for skill installation commands
+      if (toolName === 'Bash' || toolName === 'bash') {
+        const cmd = toolInput.args?.command || '';
+        if (/npx\s+skills?\s+install|npm\s+run\s+skills?\s+install|skill[s]?\s+install/i.test(cmd)) {
+          lastRefreshTime = 0;
+          refreshSkills(ctxDir);
+          return;
+        }
+      }
+
+      // Refresh after direct skill operations
+      if (['skill', 'skill_create', 'skill_update'].includes(toolName)) {
         lastRefreshTime = 0;
         refreshSkills(ctxDir);
       }
+
+      // FIXED (BUG-010): Removed duplicate telemetry tracking from here.
+      // Telemetry is only tracked in handleSkillLoad() for skill loads.
     },
   };
 }
