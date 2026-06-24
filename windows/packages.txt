@@ -51,13 +51,16 @@ epicgameslauncher
 bedrock-launcher
 prismlauncher
 
-python313
 openjdk-25
+python
 nodejs
-msys2
-make
-cmake
+rustup
+mingw
+uv
+fnm
 bun
+cmake
+make
 docker-desktop
 mysql.workbench
 pgadmin4
