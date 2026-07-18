@@ -7,6 +7,7 @@ dotnet-all
 netfx-all
 
 geforce-game-ready-driver
+nvidia-profile-inspector
 cuda
 
 7zip
@@ -50,6 +51,9 @@ steam
 epicgameslauncher
 bedrock-launcher
 prismlauncher
+
+# fishstrap
+# hoyoplay
 
 openjdk-25
 python
