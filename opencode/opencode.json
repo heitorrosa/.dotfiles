@@ -8,9 +8,8 @@
     "context-mode",
     "opencode-acp",
     "C:/Users/Administrator/.config/opencode/plugins/opencode-vcc",
-    "opencode-hermes-memory",
+    "C:/Users/Administrator/.config/opencode/plugins/opencode-hermes-memory",
     "C:/Users/Administrator/.config/opencode/plugins/opencode-hermes-skills",
-    "C:/Users/Administrator/.config/opencode/plugins/opencode-memory-nudge",
     "@prevalentware/opencode-goal-plugin@0.1.17",
     "opencode-ralph-loop",
     "opencode-autoresearch",
@@ -26,21 +25,10 @@
   },
   "experimental": {},
   "mcp": {
-    "context-mode": {
-      "type": "local",
-      "enabled": true,
-      "command": [
-        "context-mode"
-      ]
-    },
     "sequential-thinking": {
       "type": "local",
       "enabled": true,
-      "command": [
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
     "websearch": {
       "type": "remote",
@@ -50,21 +38,12 @@
     "fetch": {
       "type": "local",
       "enabled": true,
-      "command": [
-        "python",
-        "-m",
-        "mcp_server_fetch"
-      ]
+      "command": ["python", "-m", "mcp_server_fetch"]
     },
     "playwright": {
       "type": "local",
       "enabled": true,
-      "command": [
-        "npx",
-        "-y",
-        "@playwright/mcp@latest",
-        "--headless"
-      ]
+      "command": ["npx", "-y", "@playwright/mcp@latest", "--headless"]
     },
     "grep_app": {
       "type": "remote",
@@ -80,16 +59,6 @@
       "type": "remote",
       "enabled": true,
       "url": "https://connect.composio.dev/mcp"
-    },
-    "open-design": {
-      "type": "local",
-      "command": [
-        "od",
-        "mcp",
-        "--daemon-url",
-        "http://127.0.0.1:7456"
-      ],
-      "enabled": true
     },
     "mansa": {
       "type": "remote",

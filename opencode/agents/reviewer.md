@@ -40,7 +40,7 @@ Review protocol:
 
 Status definitions:
 - PASS: no issues found. Output meets all requirements.
-- CONDITIONAL: minor issues that do not affect correctness. Note them and let orchestrator decide.
+- CONDITIONAL: minor issues that do not affect correctness. Note them and let hermes decide.
 - FAIL: significant issues. Incorrect logic, missing requirements, wrong-envelope, edge-cases unhandled, style violations that affect maintainability.
 
 Critical: wrong-envelope detection. If the executor returned a well-structured envelope with Status: Success but Mutations do not match the task requirements, or the deliverables solve a different problem than requested, return FAIL with specific evidence. A polite wrong answer is still wrong.
