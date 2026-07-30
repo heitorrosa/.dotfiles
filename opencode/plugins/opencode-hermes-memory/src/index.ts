@@ -41,8 +41,21 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
   // Frozen memory snapshot — read once per session, invalidated on session.idle
   let cachedSystemPrompt: string | null = null
 
-  function resolveSessionID(input: any): string {
-    return input?.sessionID || input?.sessionId || `nudge-fallback-${randomUUID()}`
+  // Stable per-process fallback ID — avoids fragmenting state across 100+ random UUIDs
+  const STABLE_FALLBACK_ID = `nudge-fallback-${randomUUID()}`
+
+  function resolveSessionID(input: any, messages?: Message[]): string {
+    // 1. Direct sessionID on input (tool.execute.after has it)
+    if (input?.sessionID) return input.sessionID
+    if (input?.sessionId) return input.sessionId
+    // 2. Session ID on message info (messages.transform)
+    if (messages?.length) {
+      for (let i = messages.length - 1; i >= 0; i--) {
+        const sid = (messages[i].info as any)?.sessionID
+        if (sid) return sid
+      }
+    }
+    return STABLE_FALLBACK_ID
   }
 
   function buildMemorySummary(title: string): string {
@@ -84,18 +97,18 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
     tool: allTools,
 
     // ─── 2. SYSTEM PROMPT INJECTION ───────────────────────────────────────
-    "experimental.chat.system.transform": (systemParts: any[]) => {
-      return [...(Array.isArray(systemParts) ? systemParts : []), { role: "system" as const, content: getFrozenSnapshot() }]
+    "experimental.chat.system.transform": async (_input: any, output: { system: string[] }) => {
+      output.system.push(getFrozenSnapshot())
     },
 
     // ─── 3. MESSAGE-LEVEL NUDGE INJECTION ─────────────────────────────────
     "experimental.chat.messages.transform": async (input: any, output: any) => {
       try {
-        const sessionID = resolveSessionID(input)
-        const state = sessionManager.get(sessionID)
-
         const messages = output.messages as Message[]
         if (!messages || messages.length === 0) return
+
+        const sessionID = resolveSessionID(input, messages)
+        const state = sessionManager.get(sessionID)
 
         state.monotonicTurnCount++
 
@@ -161,16 +174,16 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
     },
 
     // ─── 4. TOOL EXECUTION TRACKING ───────────────────────────────────────
-    "experimental.chat.tool.execute.after": (toolResult: any) => {
+    "experimental.chat.tool.execute.after": (input: any, output: any) => {
       try {
-        const toolName = toolResult.info.tool
-        const sessionID = resolveSessionID(toolResult)
+        const toolName = input.tool
+        const sessionID = input.sessionID || resolveSessionID(input)
         const state = sessionManager.get(sessionID)
 
         // ─── FILE-EDIT GUARD ───────────────────────────────────────────────
         // Block direct edits/writes to memory.md and user.md
         if (toolName === "edit" || toolName === "write") {
-          const filePath = (toolResult.args?.filePath || toolResult.args?.path || "").replace(/\\/g, "/")
+          const filePath = (input.args?.filePath || input.args?.path || "").replace(/\\/g, "/")
           if (/\/(memory|user)\.md$/i.test(filePath) && !toolName.startsWith("memory_")) {
             return {
               content: `BLOCKED: Cannot edit ${filePath} directly. Use memory_save() or memory_search() instead.`,
@@ -198,10 +211,10 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
 
         // Signal detection on tool output
         if (mergedConfig.signalDetection && !mergedConfig.protectedTools.includes(toolName)) {
-          const result = toolResult.properties?.result
-          if (result) {
-            const output = typeof result === "string" ? result : JSON.stringify(result)
-            const signalType = detectSignalInToolOutput(toolName, output)
+          const toolOutput = output?.output
+          if (toolOutput) {
+            const outputText = typeof toolOutput === "string" ? toolOutput : JSON.stringify(toolOutput)
+            const signalType = detectSignalInToolOutput(toolName, outputText)
             if (signalType) {
               const key = `${state.monotonicTurnCount}-${signalType}`
               if (!state.signalNudgeSent.has(key)) {

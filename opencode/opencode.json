@@ -35,6 +35,11 @@
       "enabled": true,
       "url": "https://mcp.exa.ai/mcp?tools=web_search_exa"
     },
+    "searxng": {
+      "type": "remote",
+      "enabled": true,
+      "url": "http://localhost:8888/mcp/"
+    },
     "fetch": {
       "type": "local",
       "enabled": true,
