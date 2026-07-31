@@ -1,1 +1,1 @@
-arch
+arch, hyprland, wayland, quickshell, greetd, systemd

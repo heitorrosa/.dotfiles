@@ -23,11 +23,15 @@ powershell-core
 sysinternals
 geekuninstaller
 
+ghidra
+x64dgb
+
 tailscale
 qbittorrent
 apollo
 parsec
 localsend
+audiorelay
 
 hwinfo
 msiafterburner
@@ -54,6 +58,7 @@ prismlauncher
 
 # fishstrap
 # hoyoplay
+# xxmi launcher
 
 openjdk-25
 python
@@ -65,8 +70,7 @@ fnm
 bun
 cmake
 make
+
 docker-desktop
 mysql.workbench
 pgadmin4
-
-audiorelay
