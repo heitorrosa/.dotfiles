@@ -2,7 +2,4 @@
 
 requirements:
     install graphify
-    install context-mode
-    install opendesign
-    install the searxng mcp
-    install mcp_server_fetch
+    chromium 144+ and chrome://inspect/#remote-debugging enabled

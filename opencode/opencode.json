@@ -7,9 +7,9 @@
     "opencode-scheduler",
     "context-mode",
     "opencode-acp",
-    "C:/Users/Administrator/.config/opencode/plugins/opencode-vcc",
-    "C:/Users/Administrator/.config/opencode/plugins/opencode-hermes-memory",
-    "C:/Users/Administrator/.config/opencode/plugins/opencode-hermes-skills",
+    "~/.config/opencode/plugins/opencode-vcc",
+    "~/.config/opencode/plugins/opencode-hermes-memory",
+    "~/.config/opencode/plugins/opencode-hermes-skills",
     "@prevalentware/opencode-goal-plugin@0.1.17",
     "opencode-ralph-loop",
     "opencode-autoresearch",
@@ -25,30 +25,20 @@
   },
   "experimental": {},
   "mcp": {
-    "sequential-thinking": {
+    "chrome": {
       "type": "local",
       "enabled": true,
-      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
-    },
-    "websearch": {
-      "type": "remote",
-      "enabled": true,
-      "url": "https://mcp.exa.ai/mcp?tools=web_search_exa"
-    },
-    "searxng": {
-      "type": "remote",
-      "enabled": true,
-      "url": "http://localhost:8888/mcp/"
-    },
-    "fetch": {
-      "type": "local",
-      "enabled": true,
-      "command": ["python", "-m", "mcp_server_fetch"]
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--no-usage-statistics", "--autoConnect", "--userDataDir", "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\User Data"]
     },
     "playwright": {
       "type": "local",
       "enabled": true,
       "command": ["npx", "-y", "@playwright/mcp@latest", "--headless"]
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
     "grep_app": {
       "type": "remote",
