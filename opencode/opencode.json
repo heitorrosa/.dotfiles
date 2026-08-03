@@ -24,16 +24,26 @@
     }
   },
   "experimental": {},
+  "tools": {
+    "webfetch": false,
+    "websearch": false,
+    "compress": false
+  },
   "mcp": {
     "chrome": {
       "type": "local",
       "enabled": true,
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--no-usage-statistics", "--autoConnect", "--userDataDir", "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\User Data"]
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--no-usage-statistics", "--userDataDir", "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\User Data Agent", "--executablePath", "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\Application\\thorium.exe", "--chromeArg=--start-minimized"]
     },
-    "playwright": {
+    "hound": {
       "type": "local",
       "enabled": true,
-      "command": ["npx", "-y", "@playwright/mcp@latest", "--headless"]
+      "command": ["hound"]
+    },
+    "context7": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.context7.com/mcp"
     },
     "sequential-thinking": {
       "type": "local",
@@ -44,11 +54,6 @@
       "type": "remote",
       "enabled": true,
       "url": "https://mcp.grep.app"
-    },
-    "context7": {
-      "type": "remote",
-      "enabled": true,
-      "url": "https://mcp.context7.com/mcp"
     },
     "composio": {
       "type": "remote",

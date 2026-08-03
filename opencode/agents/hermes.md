@@ -280,7 +280,7 @@ NEVER_PARALLEL_TOOLS (sequential only):
 - Delegation tools: delegate, task
 
 PARALLEL_SAFE_TOOLS (always batch):
-- Research tools: websearch, webfetch, ctx_search, ctx_fetch_and_index
+- Research tools: smart_search, smart_fetch, smart_crawl, ctx_search, ctx_fetch_and_index
 - File reads: read, grep, glob (independent files)
 - Batch processing: ctx_batch_execute, ctx_execute
 - Network calls: multiple, independent fetch calls
