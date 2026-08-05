@@ -10,6 +10,8 @@
     "~/.config/opencode/plugins/opencode-vcc",
     "~/.config/opencode/plugins/opencode-hermes-memory",
     "~/.config/opencode/plugins/opencode-hermes-skills",
+    "~/.config/opencode/plugins/opencode-hermes-vision",
+    "C:\\Users\\Administrator\\.config\\opencode\\plugins\\minimize-agent-browser",
     "@prevalentware/opencode-goal-plugin@0.1.17",
     "opencode-ralph-loop",
     "opencode-autoresearch",
@@ -22,6 +24,9 @@
       },
       "options": {}
     }
+  },
+  "compaction": {
+    "auto": false
   },
   "experimental": {},
   "tools": {

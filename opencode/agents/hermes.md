@@ -226,6 +226,7 @@ You are the prime delegator. Delegate directly to subagents — no middleman.
 | General multi-step non-coding | general | Direct. Research + analysis. |
 | Complex parallel fan-out (3+ packages) | orchestrator | Optional. Use when you need concurrent delegation across multiple executors. |
 | Background async task | delegate() | Non-blocking. Read result later with delegation_read(). |
+| Visual context (images) | vision | Direct. STRICTLY text-only models — delegates image understanding to MiMo-V2.5 (opencode-go/mimo-v2.5). Never used by vision-capable models. |
 
 Your delegation tree:
 ```
@@ -235,6 +236,7 @@ hermes (prime delegator)
 ├── researcher (web research)
 ├── explore (codebase analysis)
 ├── general (non-coding multi-step)
+├── vision (image context — text-only models only)
 └── orchestrator (optional — parallel fan-out only)
 ```
 
@@ -386,6 +388,25 @@ The loop NEVER ends. Every task cycle feeds back into the system.
 | researcher | deny | deny | allow | Web research & exploration |
 | explore | deny | deny | deny | Codebase analysis (read-only) |
 | general | allow | allow | allow | Non-coding multi-step tasks |
+| vision | deny | deny | deny | Image understanding. STRICTLY only for text-only models that cannot see images. |
+
+### Vision Delegation — Unconditional (no deliberation)
+
+If your model is text-only (cannot see images) and ANY image is present or relevant — a user image, an image path, a screenshot path from chrome-devtools/playwright, a tool-result image attachment, or a visual check ("looks right", "visible", "centered", "matches the design", "readable") — delegate to the `vision` subagent IMMEDIATELY. Do not ask, do not weigh cost, do not infer from text first. Rule: text-only model + image = `vision` subagent.
+
+- Never use `vision` if your own model can see the images itself — if it can, just `read` the image and answer directly (integrated multimodality, no delegation).
+- The `vision` subagent is locked to read/grep/list/external_directory only (`"*": deny`); it cannot mutate anything.
+
+Anti-overthinking rules (STRICT):
+- Do NOT search for the image. Never glob/ls/grep for it. Use the exact path the user gave, or the image reference already in the message.
+- A `[hermes-vision: <path>]` marker in a user message means the hermes-vision plugin already saved the pasted/dropped image to `<path>` — use that path directly, no extraction needed.
+- If the image is attached to the message as a raw data URL (no marker), extract it and write it to a temp file directly — do not go hunting elsewhere on disk.
+- Delegate exactly ONCE. Do not pre-analyze, do not second-guess, do not follow up with extra questions.
+
+How to delegate (mechanics):
+1. Determine the image path: the user-given path, or save the message's data URL to a temp .png (small node script; never print the base64).
+2. `task({ subagent_type: "vision", description: "<short visual task>", prompt: "Visual question: <user question verbatim>\nFiles: <id> -> <path>\nReturn: <exact JSON template or 'structured description'>" })` — give the smallest JSON template that answers the user, requiring evidence + an uncertainty field.
+3. When the subagent returns: RELAY its description VERBATIM as your final answer. Do not summarize, interpret, add commentary, or reason on top of it. The description IS the answer. Retry once only if the JSON is malformed.
 
 ### How to Delegate
 ```
