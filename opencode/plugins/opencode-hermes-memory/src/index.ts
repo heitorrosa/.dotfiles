@@ -38,8 +38,15 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
   // Pending signal nudges (array to avoid overwriting — BUG-006)
   const pendingSignalNudges = new Map<string, string[]>()
 
-  // Frozen memory snapshot — read once per session, invalidated on session.idle
-  let cachedSystemPrompt: string | null = null
+  // Frozen memory snapshot — built once per SESSION and kept byte-stable for the
+  // rest of that session (prompt-cache stability). The old code set this to null
+  // on every session.idle, which fires after EVERY assistant turn; that rebuilt
+  // the snapshot constantly, so any memory_save / skill_create mid-session
+  // changed the injected system prompt and killed provider prefix cache hits.
+  // Design intent (Hermes prompt assembly): snapshot frozen at session start,
+  // mid-session writes appear on the NEXT session. Map keyed by sessionID.
+  const snapshotCache = new Map<string, string>()
+  const SNAPSHOT_CACHE_MAX = 64
 
   // Stable per-process fallback ID — avoids fragmenting state across 100+ random UUIDs
   const STABLE_FALLBACK_ID = `nudge-fallback-${randomUUID()}`
@@ -79,17 +86,25 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
     ].join("\n")
   }
 
-  function getFrozenSnapshot(): string {
-    if (!cachedSystemPrompt) {
-      cachedSystemPrompt = [
-        buildMemorySummary("# Hermes Memory State"),
-        "",
-        "## Retrieval Reminder",
-        "Before acting on any task, use memory_search(query: \"keywords\") to check past knowledge.",
-        "After completing complex tasks (5+ tool calls), consider skill_create() for reusable workflows.",
-      ].join("\n")
+  function getFrozenSnapshot(sessionID: string): string {
+    // Key by the REAL session id when available; fallback id is stable per process.
+    const key = sessionID || "default"
+    const cached = snapshotCache.get(key)
+    if (cached !== undefined) return cached
+    const snapshot = [
+      buildMemorySummary("# Hermes Memory State"),
+      "",
+      "## Retrieval Reminder",
+      "Before acting on any task, use memory_search(query: \"keywords\") to check past knowledge.",
+      "After completing complex tasks (5+ tool calls), consider skill_create() for reusable workflows.",
+    ].join("\n")
+    snapshotCache.set(key, snapshot)
+    // Bound memory usage: drop oldest entries beyond the cap.
+    if (snapshotCache.size > SNAPSHOT_CACHE_MAX) {
+      const oldest = snapshotCache.keys().next().value
+      if (oldest !== undefined) snapshotCache.delete(oldest)
     }
-    return cachedSystemPrompt
+    return snapshot
   }
 
   return {
@@ -97,8 +112,9 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
     tool: allTools,
 
     // ─── 2. SYSTEM PROMPT INJECTION ───────────────────────────────────────
-    "experimental.chat.system.transform": async (_input: any, output: { system: string[] }) => {
-      output.system.push(getFrozenSnapshot())
+    "experimental.chat.system.transform": async (input: any, output: { system: string[] }) => {
+      const sessionID = input?.sessionID || input?.sessionId || ""
+      output.system.push(getFrozenSnapshot(sessionID))
     },
 
     // ─── 3. MESSAGE-LEVEL NUDGE INJECTION ─────────────────────────────────
@@ -119,6 +135,9 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
 
         // Check for pending signal nudges (array, not single value)
         const pendingSignals = pendingSignalNudges.get(sessionID)
+        // Cap the queue: never inject more than a few nudges per session turn -
+        // prevents nudge storms after bursty tool activity.
+        while (pendingSignals && pendingSignals.length > 3) pendingSignals.shift()
         const pendingSignal = pendingSignals?.length ? pendingSignals.shift()! : null
 
         // Determine which nudge to inject
@@ -137,15 +156,30 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
         }
 
         // ─── RETRIEVAL GAP NUDGE ──────────────────────────────────────────
-        if (state.lastMemorySearchMonotonic >= 0) {
+        // FIX (spam): the old code fired this on EVERY turn once the gap was
+        // exceeded - it never updated lastMemorySearchMonotonic or
+        // lastNudgeMonotonic. Cooldown: only fire if we have NOT nudged within
+        // nudgeFrequency turns, then record the nudge. Recompute turnsSinceNudge
+        // here (a periodic/pending nudge above may have just updated the cooldown).
+        const turnsSinceNudgeNow = state.monotonicTurnCount - state.lastNudgeMonotonic
+        if (
+          state.lastMemorySearchMonotonic >= 0 &&
+          turnsSinceNudgeNow >= mergedConfig.nudgeFrequency
+        ) {
           const turnsSinceSearch = state.monotonicTurnCount - state.lastMemorySearchMonotonic
           if (turnsSinceSearch >= mergedConfig.nudgeFrequency) {
             const gapNudge = RETRIEVAL_GAP_NUDGE.replace("{toolCalls}", String(state.toolCallCount))
             dualInject(messages, gapNudge)
+            state.lastNudgeMonotonic = state.monotonicTurnCount
+            state.lastNudgeTimestamp = Date.now()
           }
         }
 
         // ─── CORRECTION DETECTION ─────────────────────────────────────────
+        // FIX (spam): keyed on monotonicTurnCount, so the SAME correction in the
+        // SAME user message re-queued a nudge every turn (turn count changes
+        // every transform call). Key on the message ID instead: one nudge per
+        // offending message, ever.
         for (let i = messages.length - 1; i >= 0; i--) {
           const msg = messages[i]
           if (msg.info?.role !== "user" || !msg.parts?.length) continue
@@ -153,7 +187,8 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
             if (part.type !== "text") continue
             const text = (part as any).text
             if (detectCorrectionInText(text)) {
-              const key = `${state.monotonicTurnCount}-correction`
+              const msgId = (msg.info as any)?.id || `corr-${i}`
+              const key = `correction:${msgId}`
               if (!state.signalNudgeSent.has(key)) {
                 state.signalNudgeSent.add(key)
                 if (!pendingSignalNudges.has(sessionID)) {
@@ -216,7 +251,9 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
             const outputText = typeof toolOutput === "string" ? toolOutput : JSON.stringify(toolOutput)
             const signalType = detectSignalInToolOutput(toolName, outputText)
             if (signalType) {
-              const key = `${state.monotonicTurnCount}-${signalType}`
+              // FIX (spam): key on tool name + call signature, not turn count,
+              // so the same output does not re-queue a nudge every turn.
+              const key = `signal:${toolName}:${signalType}`
               if (!state.signalNudgeSent.has(key)) {
                 state.signalNudgeSent.add(key)
                 if (!pendingSignalNudges.has(sessionID)) {
@@ -233,11 +270,18 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
         }
 
         // ─── SKILL UPDATE NUDGE ───────────────────────────────────────────
+        // FIX (spam): every skill_list/skill call queued SKILL_NUDGE with no
+        // dedup - the agent calls skill() constantly, so nudges piled up for
+        // dozens of turns. Only queue once per session.
         if ((toolName === "skill_list" || toolName === "skill") && mergedConfig.signalDetection) {
-          if (!pendingSignalNudges.has(sessionID)) {
-            pendingSignalNudges.set(sessionID, [])
+          const key = `signal:skill:${toolName}`
+          if (!state.signalNudgeSent.has(key)) {
+            state.signalNudgeSent.add(key)
+            if (!pendingSignalNudges.has(sessionID)) {
+              pendingSignalNudges.set(sessionID, [])
+            }
+            pendingSignalNudges.get(sessionID)!.push(SKILL_NUDGE)
           }
-          pendingSignalNudges.get(sessionID)!.push(SKILL_NUDGE)
         }
 
         sessionManager.save()
@@ -255,8 +299,11 @@ export default function createPlugin(config?: Partial<MemoryNudgeConfig>) {
         // Merge fallback sessions into real session (BUG-014 fix)
         sessionManager.mergeFallbacks(sessionID)
 
-        // Invalidate frozen snapshot so next session re-reads from disk
-        cachedSystemPrompt = null
+        // NOTE: we intentionally do NOT invalidate the frozen snapshot here.
+        // session.idle fires after every assistant turn; invalidating rebuilt
+        // the snapshot on every turn, so any memory_save mid-session changed the
+        // system prompt and destroyed prompt-cache hits. Snapshot stays frozen
+        // per session; new sessions build their own fresh snapshot.
 
         // Clean up session state
         pendingSignalNudges.delete(sessionID)

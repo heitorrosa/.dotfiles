@@ -19,6 +19,10 @@ export function injectNudgeIntoMessage(message: Message, nudge: string): void {
   if (existing) {
     // Append if already has content, prepend otherwise
     const trimmed = existing.text.trim()
+    // Cache stability: if this exact nudge is already present (message was
+    // already sent to the provider), do NOT touch it - re-stripping and
+    // re-appending changes bytes and breaks prefix-cache hits on the next turn.
+    if (trimmed.includes(nudge)) return
     if (trimmed.includes("[Hermes Memory")) {
       // Already has a nudge — replace it
       existing.text = existing.text.replace(

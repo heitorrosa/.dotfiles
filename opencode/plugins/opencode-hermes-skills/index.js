@@ -13,6 +13,16 @@ let skillCache = new Map();
 let lastRefreshTime = 0;
 const DEBOUNCE_MS = 30000;
 
+// Cache stability: the <available_skills> XML injected into the SYSTEM PROMPT
+// must be byte-stable within a session or provider prefix-cache hits die.
+// session.idle fires after EVERY assistant turn; refreshing on idle meant any
+// skill_create/skill_update mid-session changed the system prompt on the next
+// request. We now freeze the rendered XML per sessionID: new sessions get a
+// fresh list, existing sessions keep the exact bytes they started with.
+let xmlCache = new Map(); // sessionID -> rendered <available_skills> XML
+let xmlCacheRefresh = 0; // last time the global list was scanned
+const XML_CACHE_MAX = 64;
+
 // BM25 index and telemetry (initialized on first refresh)
 let bm25 = null;
 let telemetry = null;
@@ -409,14 +419,40 @@ Returns: load counts, usage trends, staleness, and session context.`,
     },
 
     // Hook: Inject <available_skills> XML into system prompt
-    'experimental.chat.system.transform': async (_input, output) => {
-      const xml = generateSkillsXml(skillCache);
+    'experimental.chat.system.transform': async (input, output) => {
+      const sessionID = input?.sessionID || input?.sessionId || 'default';
+      let xml = xmlCache.get(sessionID);
+      if (xml === undefined) {
+        // Refresh the global list lazily (debounced) so new skills appear for
+        // NEW sessions, then freeze this session's rendering.
+        if (Date.now() - xmlCacheRefresh > DEBOUNCE_MS) {
+          refreshSkills(ctxDir);
+          xmlCacheRefresh = Date.now();
+        }
+        xml = generateSkillsXml(skillCache);
+        xmlCache.set(sessionID, xml);
+        if (xmlCache.size > XML_CACHE_MAX) {
+          const oldest = xmlCache.keys().next().value;
+          if (oldest !== undefined) xmlCache.delete(oldest);
+        }
+      }
       if (xml) output.system.push(xml);
     },
 
-    // Hook: Refresh on session idle
+    // Hook: Refresh on session idle — refresh the GLOBAL skill list (for new
+    // sessions), but never touch the per-session frozen XML (cache stability).
     event: async ({ event }) => {
-      if (event.type === 'session.idle') refreshSkills(ctxDir);
+      if (event.type === 'session.idle') {
+        if (Date.now() - xmlCacheRefresh > DEBOUNCE_MS) {
+          refreshSkills(ctxDir);
+          xmlCacheRefresh = Date.now();
+        }
+        // Prune XML cache for dead sessions to bound memory.
+        if (xmlCache.size > XML_CACHE_MAX * 4) {
+          const keys = Array.from(xmlCache.keys()).slice(0, Math.floor(xmlCache.size / 2));
+          for (const k of keys) xmlCache.delete(k);
+        }
+      }
     },
 
     // Hook: Refresh after skill operations and watch for skill installation

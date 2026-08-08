@@ -2,12 +2,21 @@
   "$schema": "https://raw.githubusercontent.com/ranxianglei/opencode-acp/master/dcp.schema.json",
   "enabled": true,
   "compress": {
-    "maxContextLimit": "50%",
+    "maxContextLimit": "55%",
     "minContextLimit": "20%",
-    "nudgeFrequency": 6,
-    "iterationNudgeThreshold": 15,
-    "nudgeForce": "soft"
+    "minNudgeContextPercent": 5,
+    "nudgeGrowthTokens": 3000,
+    "minNudgeGrowthFloor": 1500,
+    "minNudgeGrowthRatio": 0.1,
+    "nudgeFrequency": 3,
+    "iterationNudgeThreshold": 8,
+    "nudgeForce": "soft",
+    "minCompressRange": 3000,
+    "preserveRecentMessages": 5,
+    "preserveRecentTokens": 4000,
+    "lastSegmentSoftBlock": true
   },
   "pruneNotification": "off",
   "pruneNotificationType": "toast"
 }
+

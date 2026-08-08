@@ -11,8 +11,8 @@
     "~/.config/opencode/plugins/opencode-hermes-memory",
     "~/.config/opencode/plugins/opencode-hermes-skills",
     "~/.config/opencode/plugins/opencode-hermes-vision",
-    "C:\\Users\\Administrator\\.config\\opencode\\plugins\\minimize-agent-browser",
-    "@prevalentware/opencode-goal-plugin@0.1.17",
+    "~/.config/opencode/plugins/minimize-agent-browser",
+    "@prevalentware/opencode-goal-plugin",
     "opencode-ralph-loop",
     "opencode-autoresearch",
     "opencode-ponytail"
@@ -31,14 +31,17 @@
   "experimental": {},
   "tools": {
     "webfetch": false,
-    "websearch": false,
-    "compress": false
+    "websearch": false
   },
   "mcp": {
-    "chrome": {
+    "bladebro": {
       "type": "local",
       "enabled": true,
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--no-usage-statistics", "--userDataDir", "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\User Data Agent", "--executablePath", "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\Application\\thorium.exe", "--chromeArg=--start-minimized"]
+      "command": ["bladebro", "mcp"],
+      "environment": {
+        "CHROME_PATH": "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\Application\\thorium.exe",
+        "BLADE_PROFILE_DIR": "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\User Data Agent"
+      }
     },
     "hound": {
       "type": "local",

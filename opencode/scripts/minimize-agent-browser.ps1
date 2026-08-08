@@ -1,10 +1,11 @@
 # minimize-agent-browser.ps1
 # Standing daemon: whenever the chrome-devtools-mcp agent Thorium window
 # ("User Data Agent") appears (MCP launch / restart), minimize it immediately.
-# Thorium 150 ignores --start-minimized, so this is the only reliable way.
-# The whole poll body is wrapped in try/catch: a transient error (e.g. the
-# agent window closing between Get-Process and IsIconic, or a WMI hiccup)
-# must never kill the daemon — unhandled exceptions previously did.
+# Modern Chromium ignores --start-minimized (verified: vanilla Chrome 150-era
+# opens visible with the flag, same as Thorium), so Win32 minimization is the
+# only reliable way. The whole poll body is wrapped in try/catch: a transient
+# error (e.g. the agent window closing between Get-Process and IsIconic, or a
+# WMI hiccup) must never kill the daemon — unhandled exceptions previously did.
 Add-Type @"
 using System;
 using System.Runtime.InteropServices;
