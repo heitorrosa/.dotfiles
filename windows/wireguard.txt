@@ -1,8 +1,0 @@
-[Interface]
-PrivateKey = key
-Address = 10.73.164.111/32
-
-[Peer]
-PublicKey = key
-AllowedIPs = 10.64.0.0/16
-Endpoint = 193.32.127.66:51820

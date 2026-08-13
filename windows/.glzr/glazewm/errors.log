@@ -1,0 +1,413 @@
+[2m2025-09-21T20:52:08.864250Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Failed to execute 'zebar'.
+
+Error: The operation was canceled by the user. (0x800704C7)
+[2m2025-09-21T21:01:21.525713Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Program path is not valid for command '%localappdata%\Thorium\Application\thorium.exe'.
+[2m2025-09-21T21:07:44.757448Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Program path is not valid for command '%localappdata%\Thorium\Application\thorium.exe'.
+[2m2025-09-23T11:31:15.177453Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Program path is not valid for command 'D:\Program Files\VS Code\Code.exe'.
+[2m2025-10-01T21:30:53.083725Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-05T17:01:28.560682Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-05T17:02:59.480343Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-05T17:34:23.838815Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-07T20:20:22.267032Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-09T23:33:39.728568Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-09T23:33:40.839687Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:41.240575Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:41.575240Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:41.739786Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:41.920201Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:42.094630Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:42.638413Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:42.808487Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:42.998228Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:43.165087Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-09T23:33:43.339266Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:51.590564Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-10T01:08:52.703449Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:53.128656Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:53.378623Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:53.554657Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:53.708029Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:53.837360Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:53.963060Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:54.076634Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:54.195457Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:54.318078Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:54.431046Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:54.557056Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:54.671618Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:54.790439Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:54.911270Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:55.039535Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:55.175613Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:55.311245Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:55.498569Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:55.555071Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:55.609974Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:55.887510Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:56.007622Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:56.145050Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:56.229943Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:56.429824Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:56.515815Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:56.643945Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:56.762900Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:56.898709Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:57.007500Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-10T01:08:57.743396Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:27.519477Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-13T01:38:29.077904Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:29.884678Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:30.083822Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:30.276953Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:30.445805Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:30.835676Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:31.042019Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:31.190578Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:31.949263Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:32.232277Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:32.487844Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:33.108003Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:33.378014Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:33.680514Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-13T01:38:55.738232Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-16T22:48:32.699330Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-16T22:48:37.423547Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Another instance of the application is already running.
+[2m2025-11-17T01:17:35.908397Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-25T01:00:48.387245Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-25T01:00:49.432772Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-25T01:00:50.201522Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-25T01:00:50.366999Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-25T01:00:50.533746Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-25T01:00:50.690708Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-25T01:00:55.735532Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-26T11:47:17.135916Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-26T18:34:22.337825Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-28T04:06:14.878020Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-29T19:23:50.151662Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-11-29T19:23:51.473668Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-29T19:23:51.617450Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-29T19:23:51.814457Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-29T19:23:52.518334Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-29T19:23:52.798469Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-29T19:23:53.292354Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-29T19:23:59.340595Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-11-30T02:09:09.916125Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-02T15:44:00.042703Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-05T01:09:04.930784Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-05T01:09:12.083806Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-05T23:22:49.700481Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-05T23:22:51.607970Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-05T23:22:52.172015Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-05T23:22:52.192248Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-05T23:22:52.370727Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-05T23:22:52.390405Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-05T23:22:52.561788Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-05T23:22:52.778623Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-05T23:22:56.076660Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:47.445170Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-09T00:33:48.672301Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:48.838978Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:49.015873Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:49.208023Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:49.368185Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:49.533625Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:49.704878Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:49.880003Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:33:55.061815Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-09T00:34:45.775648Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Another instance of the application is already running.
+[2m2025-12-09T22:33:39.307563Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-09T22:43:50.741562Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-10T01:45:35.145096Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-10T01:45:36.468269Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-10T01:45:37.146184Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-10T01:45:37.315848Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-10T01:45:37.504695Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-10T01:45:42.566297Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-14T04:48:20.112695Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Another instance of the application is already running.
+[2m2025-12-15T06:55:11.022779Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-15T06:55:12.602827Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-15T06:55:12.784287Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-15T06:55:13.022257Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-15T06:55:13.185376Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-15T06:55:13.313221Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-15T06:55:17.284997Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-17T17:52:12.798641Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-17T18:39:59.917556Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-22T03:30:23.577425Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-24T03:17:51.584441Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-24T03:17:53.285190Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-24T03:17:54.049096Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-24T03:17:54.714353Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-24T03:18:04.272664Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-29T04:00:57.834275Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2025-12-29T04:00:58.904921Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-29T04:00:59.522615Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-29T04:00:59.771951Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-29T04:00:59.930638Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-29T04:01:00.098924Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-29T04:01:00.305356Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2025-12-29T04:01:04.246276Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-03T05:49:23.243036Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-01-03T05:49:24.278912Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-03T05:49:24.505938Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-03T05:49:24.678273Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-03T05:49:24.840036Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-03T05:49:24.974836Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-03T05:49:25.104106Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-03T05:49:30.892218Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-09T23:47:39.746137Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-01-18T14:20:42.789497Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-01-18T18:58:51.700619Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Another instance of the application is already running.
+[2m2026-01-20T02:40:01.149847Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-01-20T02:40:02.177450Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T02:40:02.398420Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T02:40:02.596833Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T02:40:02.757491Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T02:40:02.891013Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T02:40:03.024907Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T02:40:03.400901Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T02:40:09.832641Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:56.174921Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-01-20T23:57:57.635022Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:58.333782Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:59.063723Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:59.205507Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:59.357998Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:59.484530Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:59.631353Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:59.825326Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:57:59.946811Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:00.062535Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:00.155302Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:00.247989Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:00.404954Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:00.582999Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:00.769001Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:00.876912Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:01.042642Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:01.196037Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-20T23:58:07.134205Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-22T13:06:04.458321Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-01-27T19:42:26.673953Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-01-27T19:42:27.776551Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:28.155962Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:28.307986Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:28.506797Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:28.660175Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:29.202773Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:29.233986Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:29.412861Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:29.447795Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-27T19:42:33.802137Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-29T20:29:32.245506Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-01-29T20:29:33.514070Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-29T20:29:34.341258Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-29T20:29:34.689762Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-29T20:29:34.868496Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-29T20:29:35.041231Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-29T20:29:35.230466Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-29T20:29:35.276379Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-01-29T20:29:43.518640Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-01T00:18:37.273630Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-02-02T20:23:30.323301Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-02-02T20:23:32.229839Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:32.964591Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:33.174822Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:33.377103Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:33.566121Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:33.779835Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:33.992798Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:34.184787Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:34.377987Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:34.598795Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-02T20:23:40.049674Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-05T14:32:09.457083Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-02-25T02:37:20.155858Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-02-25T02:37:21.510206Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-25T02:37:22.497278Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-25T02:37:23.451463Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-02-25T02:37:33.646826Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-03-16T23:24:59.458603Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-03-17T12:28:39.499182Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-03-17T12:36:06.845057Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-03-17T12:36:12.137613Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-03-17T12:36:13.237012Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-03-17T12:36:30.249495Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-03-17T12:36:30.651720Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-03-17T12:36:30.900808Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-03-17T12:36:41.187530Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-03-21T09:04:46.393533Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-03-25T20:03:08.308514Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-03-29T06:01:35.149243Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-04-03T09:09:22.897569Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-04-05T00:58:24.561999Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-04-18T18:47:39.089259Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-04-18T18:47:40.320709Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-18T18:47:41.162561Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-18T18:47:41.491315Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-18T18:47:41.709993Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-18T18:47:41.893267Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-18T18:47:52.019027Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-20T16:50:51.658183Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-04-21T09:05:05.862575Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-04-21T19:53:10.797514Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-04-24T18:32:07.165405Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-04-24T18:32:08.122408Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:08.340826Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:08.547504Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:08.690988Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:08.870330Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:09.002075Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:09.138319Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:09.307034Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:09.451290Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:09.623057Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:09.760449Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:09.916949Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:10.050313Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T18:32:17.724515Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-04-24T23:31:49.792693Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-04-29T22:51:21.782016Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-04-29T22:52:43.327734Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-05-02T18:44:49.267153Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-03T09:05:09.462121Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-04T09:05:18.007730Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-05T03:03:24.540530Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-05-08T09:36:41.724856Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-08T09:38:32.862843Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-08T09:39:56.144723Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-08T16:34:48.461203Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-09T20:15:47.406500Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-12T03:14:43.493315Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-05-12T03:14:44.413801Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-12T03:14:44.592463Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-12T03:14:44.838216Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-12T03:14:45.116952Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-12T03:14:45.428866Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-12T03:14:45.589751Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-12T03:14:50.882466Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-13T02:17:03.405167Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-15T02:42:50.890084Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-15T02:42:52.812371Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-19T09:04:39.411179Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-20T01:51:23.918602Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-05-20T01:51:25.293624Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-20T01:51:25.671539Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-20T01:51:25.815642Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-20T01:51:54.565211Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-05-20T09:04:48.688660Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-21T09:13:30.624170Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-22T09:13:44.651965Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-23T04:30:39.125247Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-24T09:14:16.359629Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-27T09:05:09.458452Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-28T09:05:22.507867Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-30T09:04:38.187966Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-05-31T09:04:54.879065Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-01T09:05:10.912997Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-02T13:59:36.301047Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-03T13:59:44.140807Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-04T13:59:52.658225Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-05T14:00:00.596921Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-06T14:00:08.598145Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-07T14:00:17.247686Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-08T14:01:09.262560Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-10T20:25:59.068469Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-06-11T09:16:50.039294Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-12T09:17:02.772798Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-14T15:45:08.497968Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-15T09:02:34.819207Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-16T09:02:49.859697Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-17T09:03:12.750787Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-18T17:01:51.880734Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-20T17:02:44.624156Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-20T18:01:06.815989Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-06-20T18:01:18.574503Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-06-20T18:01:20.345085Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:20.677488Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:20.853755Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:21.083245Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:21.235621Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:21.372095Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:21.727125Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:21.822670Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:21.938751Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:22.050436Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:22.145066Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:22.242038Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:22.414685Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-20T18:01:28.218453Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-06-25T18:20:35.221446Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-06-26T19:11:59.119037Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-27T02:42:18.674896Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-06-28T10:22:07.475836Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-01T23:20:21.600768Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-07-01T23:20:22.728705Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:22.888578Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:23.008122Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:23.135541Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:29.564752Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:35.148721Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:35.510854Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:35.683039Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:35.807529Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:35.930149Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:36.084379Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:36.207936Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:36.374844Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:37.328241Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-01T23:20:38.435473Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-07-03T10:24:09.303581Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-08T23:05:56.751285Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-11T20:05:41.617363Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-12T20:05:59.385814Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-14T18:16:58.148158Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-15T17:55:49.527412Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-15T19:07:38.373068Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-15T22:21:23.497731Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-16T10:23:55.183307Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-17T10:24:09.580312Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-18T16:53:45.333320Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-21T17:28:02.486871Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-21T18:13:19.017565Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-21T18:13:29.594158Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-21T18:14:01.689859Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-21T18:29:40.356495Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-21T18:32:10.319855Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-25T18:59:16.362465Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-26T23:40:23.356593Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-29T00:27:43.634729Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-07-30T06:11:10.542748Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-30T16:12:54.900095Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-30T16:22:33.128886Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Platform error: Another instance of the application is already running.
+[2m2026-07-31T10:55:09.170563Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-07-31T17:24:46.058808Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-08-02T16:22:27.787530Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-08-02T23:36:05.914383Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-08-06T10:04:02.413586Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-08-07T23:34:46.639298Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No common ancestor between containers.
+[2m2026-08-07T23:34:47.766362Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:49.440975Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:49.920581Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:50.410928Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:50.569132Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:50.672480Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:50.769386Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:50.922184Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:51.023860Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:51.174624Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:51.301493Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:51.417044Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:51.497521Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:51.649961Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:51.739830Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:51.881520Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:52.022942Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:52.146003Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:52.428540Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:55.100322Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:34:55.920769Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-07T23:35:02.295676Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Window has no workspace.
+[2m2026-08-08T01:41:01.285730Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-08-09T10:02:24.999640Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found
+[2m2026-08-12T10:03:01.533835Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Display device not found

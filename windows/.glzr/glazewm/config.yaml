@@ -157,7 +157,7 @@ window_rules:
       - window_process: { equals: 'Among Us' }
       - window_process: { equals: 'FortniteClient-Win64-Shipping' }
       - window_process: { equals: 'BetGame.exe' }
-      - window_process: { equals: 'BETGameSteam-Win64-Shipping.exe' }
+      - window_process: { equals: 'BETGameSteam-Win64-Shipping' }
       - window_process: { equals: 'TheFarmerWasReplaced' }
       - window_process: { equals: 'PEAK' }
       - window_process: { equals: 'aces' }
@@ -170,7 +170,10 @@ window_rules:
       - window_process: { equals: 'hoi4' }
       - window_process: { equals: 'KSP_x64' }
       - window_process: { equals: 'StarRail' }
-
+      - window_process: { equals: 'DeadByDaylight-Win64-Shipping' }
+      - window_process: { equals: 'WatchDogs2' }
+      - window_process: { equals: 'dotnet' }
+      - window_process: { equals: 'busybox64' }
       - window_title: { equals: 'Minecraft' }
       - window_title: { equals: 'Roblox' }
       
@@ -208,7 +211,7 @@ binding_modes:
       - commands: ['resize --height +2%']
         bindings: ['k','s', 'up']
       - commands: ['resize --height -2%']
-        bindiangs: ['j','w', 'down']
+        bindings: ['j','w', 'down']
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['escape', 'enter', 'alt+r']
