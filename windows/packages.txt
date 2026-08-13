@@ -57,7 +57,7 @@ prismlauncher
 
 # fishstrap
 # hoyoplay
-# xxmi launcher
+# xxmi-launcher
 
 openjdk-25
 python
