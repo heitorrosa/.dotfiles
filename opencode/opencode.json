@@ -13,9 +13,9 @@
     "~/.config/opencode/plugins/opencode-hermes-vision",
     "~/.config/opencode/plugins/minimize-agent-browser",
     "@prevalentware/opencode-goal-plugin",
-    "opencode-ralph-loop",
     "opencode-autoresearch",
-    "opencode-ponytail"
+    "opencode-ponytail",
+    "opencode-cache-hit"
   ],
   "agent": {
     "general": {
@@ -67,6 +67,11 @@
       "type": "remote",
       "enabled": true,
       "url": "https://connect.composio.dev/mcp"
+    },
+    "opencode": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "opencode-mcp"]
     },
     "mansa": {
       "type": "remote",

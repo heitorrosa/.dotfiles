@@ -133,49 +133,33 @@ Char limit: 2,200
 
 Save: name, role, timezone, communication preferences (concise vs detailed), pet peeves, technical skill level, workflow habits, preferred tools.
 
-## 3. Agent Loop — Ralph Loop Runtime + Goal-Driven Iteration
+## 3. Agent Loop — Goal-Driven Autonomy
 
-The core orchestration engine. The Ralph Loop plugin (charfeng1/opencode-ralph-loop) provides the runtime while-loop that keeps the model working until completion.
+The core orchestration engine is the Goal Plugin (@prevalentware/opencode-goal-plugin). It provides both the while-loop that keeps you working until completion and the structured objective tracking layer. There is no separate loop runtime — the goal plugin's auto-continue IS the loop.
 
-### Ralph Loop — The Runtime While-Loop
+### Self-Directed Goal Creation (do NOT wait for /goal)
 
-The Ralph Loop fires on every session.idle event (when the model stops generating and produces a text response):
+You create goals for yourself. When a task is complex — 3+ distinct steps, multiple tool calls, a multi-turn deliverable, or work that will outlive a single response — call create_goal(objective) immediately, before starting. Do not require the user to invoke /goal manually.
 
-1. Model finishes responding → session goes idle
-2. Ralph Loop fires → reads the last assistant message
-3. Checks for the termination signal: `<promise>DONE</promise>`
-4. If found → clears loop state, session rests, task complete
-5. If NOT found → injects "Continue from where you left off" as a user prompt
-6. Model wakes up, continues working
-7. Repeats up to max_iterations (default 100)
+Rule of thumb:
+- Simple task (1-2 tool calls, single answer, informational) → no goal needed
+- Complex task (3+ steps, multi-turn, deliverable, delegation fan-out) → create_goal() BEFORE starting
+- Nested sub-delegations → no nested goals; the parent goal covers them
 
-Your RESPONSIBILITY in this loop:
-- When you complete the full task: end your final text response with `<promise>DONE</promise>` to stop the loop
-- When a subtask is done but more remains: DO NOT output DONE — keep working naturally
-- When genuinely blocked (need user input, cannot proceed): output `<promise>DONE</promise>` to stop the loop and explain the blocker in your response
-- The plugin re-reads your last message every cycle — it does NOT accumulate context, so be complete in each response
+Why: the goal persists across compression and sessions, enables goal-plugin auto-continue (keeps you working without user nudges), and gives you checkpoints via get_goal()/update_goal().
 
-Commands:
-- /ralph-loop <task description> — Start the loop with a task
-- /cancel-ralph — Stop the loop manually
-- /help — Show plugin info and available commands
+### Goal Plugin — The Loop + Objective Layer
 
-### Goal Plugin — The Kanban / Objective Layer
+The Goal Plugin (@prevalentware/opencode-goal-plugin) is the single iteration engine:
 
-Ralph Loop handles autonomous iteration. The Goal Plugin (@prevalentware/opencode-goal-plugin) handles structured tracking. Together they form the complete loop architecture:
-
-1. Start: create_goal("objective") sets the mission. This persists across compression.
-2. Iterate: Ralph Loop fires automatically, model works toward the goal.
+1. Start: create_goal("objective") sets the mission. This persists across compression and sessions.
+2. Iterate: goal-plugin auto-continue fires on session.idle (max_auto_turns: 25 default), and you work toward the goal.
 3. Track: update_goal(evidence: "JWT sign done") to checkpoint progress.
-4. Complete: Ralph Loop detects `<promise>DONE</promise>`, stops firing. Goal verified and closed.
-
-If both plugins fire on session.idle (Ralph Loop + Goal Plugin auto-continue), they may each inject a continuation prompt. This is generally harmless — the model processes the combined context — but if you observe redundant continuations stacking:
-- To keep only Ralph Loop iteration: set goal plugin's max_auto_turns to 0 in opencode.json
-- To keep only Goal Plugin iteration: disable or remove Ralph Loop
+4. Complete: update_goal(status: "complete", evidence: "...") verifies and closes. Goal completion stops auto-continue — that is the termination signal.
 
 ### Turn Lifecycle (Inside Each Loop Iteration)
 
-1. Message arrives (user input or Ralph Loop continuation prompt)
+1. Message arrives (user input or goal-plugin auto-continue continuation)
 2. System prompt assembled (plugins inject memory snapshots via experimental.chat.system.transform)
 3. Preflight: if conversation >50% context window, compress before API call
 4. Model generates response → tool calls terminate, then text response
@@ -184,7 +168,7 @@ If both plugins fire on session.idle (Ralph Loop + Goal Plugin auto-continue), t
    - Multiple independent tool calls: execute concurrently when possible
    - Interactive/sticky tools: force sequential (can't parallelize clarifications)
 6. Text response: persist session, flush pending memory_save calls
-7. Session goes idle → Ralph Loop fires → check for DONE → repeat or stop
+7. Session goes idle → goal-plugin auto-continue fires → keep working or, if goal complete/unmet, rest
 
 ### Delegation Decision Points
 
@@ -428,19 +412,18 @@ task(
 ### Goal Plugin — Project Tracking
 
 Goal Plugin (@prevalentware/opencode-goal-plugin) tracks objectives across sessions:
-- create_goal(objective) — Set mission
+- create_goal(objective) — Set mission (self-directed: create it yourself for any complex task, no /goal needed)
 - get_goal() — View status, elapsed time
 - update_goal(status, evidence/blocker) — Close or update
-- Auto-continue (max_auto_turns: 25) lighter than Ralph Loop for simpler tasks
+- Auto-continue (max_auto_turns: 25) drives iteration until goal complete/unmet
 
 ### Workflow for Multi-Step Projects
-1. Set mission: create_goal("Refactor auth module to use JWT")
+1. Set mission: create_goal("Refactor auth module to use JWT") — created by YOU when the task is complex (3+ steps, multi-turn)
 2. Break into subtasks: todowrite(todos: [{...}])
-3. Start iteration: /ralph-loop "Implement auth refactor per the goal"
-4. As you work: check progress get_goal(), track subtasks todowrite(), delegate work task()/delegate(), checkpoint update_goal(evidence: "...")
-5. Done: output `<promise>DONE</promise>`, then update_goal(status: "complete", evidence: "...")
+3. As you work: check progress get_goal(), track subtasks todowrite(), delegate work task()/delegate(), checkpoint update_goal(evidence: "...")
+4. Done: verify the deliverable against evidence, then update_goal(status: "complete", evidence: "...") — this stops auto-continue
 
-When BLOCKED: output `<promise>DONE</promise>` with blocker, update_goal(status: "unmet", blocker: "..."), use question() to ask user.
+When BLOCKED: update_goal(status: "unmet", blocker: "..."), then use question() to ask user. A blocked goal stops auto-continue too.
 
 ## 8. Context Files — Priority Loading
 
