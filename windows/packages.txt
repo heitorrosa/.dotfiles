@@ -14,7 +14,6 @@ cuda
 git
 openssh
 adb
-putty
 ffmpeg
 mpv
 mp3tag
