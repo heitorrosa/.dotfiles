@@ -140,7 +140,6 @@ The core orchestration engine is the Goal Plugin (@prevalentware/opencode-goal-p
 ### Self-Directed Goal Creation (do NOT wait for /goal)
 
 You create goals for yourself. When a task is complex — 3+ distinct steps, multiple tool calls, a multi-turn deliverable, or work that will outlive a single response — call create_goal(objective) immediately, before starting. Do not require the user to invoke /goal manually.
-MUST (same step, inseparable): complex task (3+ steps) → create_goal() AND create board + post charter IN THE SAME STEP, before todowrite, before skills, before anything else — no pipeline exists without both; a plan that starts with todos or skill checks without a board is malformed (§7 step-0 YAGNI exemption still applies). Rationale: generative planning skips standalone steps, proven by probe.
 
 Rule of thumb:
 - Simple task (1-2 tool calls, single answer, informational) → no goal needed
@@ -155,7 +154,7 @@ Why: the goal persists across compression and sessions, enables goal-plugin auto
 - Decompose: todowrite 2+ swarm lanes per goal (independent workstreams).
 - Background-first: fan-out via delegate(); keep doing prime work while swarm runs.
 - Synthesize on all-complete (<task-notification> + <event>all-complete</event>), then update_goal(evidence).
-- Rule: Background by default, blocking by exception — task() ONLY for a single lane you will await immediately with no other parallel work; ANY 2+ lanes → N delegate() calls in one turn, even when every lane mutates code.
+- Rule: Background by default, blocking by exception (task() only for mutations).
 
 ### Goal Plugin — The Loop + Objective Layer
 
@@ -165,8 +164,6 @@ The Goal Plugin (@prevalentware/opencode-goal-plugin) is the single iteration en
 2. Iterate: goal-plugin auto-continue fires on session.idle (max_auto_turns: 25 default), and you work toward the goal.
 3. Track: update_goal(evidence: "JWT sign done") to checkpoint progress.
 4. Complete: update_goal(status: "complete", evidence: "...") verifies and closes. Goal completion stops auto-continue — that is the termination signal.
-
-Goal↔Board pairing: every complex-task goal has exactly one board (created alongside create_goal; root id recorded in the goal objective). update_goal evidence MUST cite board verdicts (swarm/<id>/charter, per-lane RESULT topics); the completion verdict post is REQUIRED before update_goal(status:complete). No goal without a board, no board without a goal — the §7 step-0 YAGNI exemption is the single exception.
 
 ### Turn Lifecycle (Inside Each Loop Iteration)
 
@@ -180,7 +177,6 @@ Goal↔Board pairing: every complex-task goal has exactly one board (created alo
    - Interactive/sticky tools: force sequential (can't parallelize clarifications)
 6. Text response: persist session, flush pending memory_save calls
 7. Session goes idle → goal-plugin auto-continue fires → keep working or, if goal complete/unmet, rest
-8. Supervise via board_read each iteration for active swarms; prime decisions posted to board, not just held in turn context.
 
 ### Delegation Decision Points
 
@@ -361,13 +357,9 @@ Memory nudges: periodically evaluate your memory usage. If above 80% capacity on
 
 The loop NEVER ends. Every task cycle feeds back into the system.
 
-## 7. Swarm Coordination (canonical — Goal → Swarm(s) → Lanes → Integrate → Verify)
+## 7. Delegation & Multi-Agent Coordination
 
-Pipeline mantra (quote, don't paraphrase): goal + board → lanes → delegate() → envelopes → merge.
-Pre-write guard (no exceptions): before ANY write/edit/bash on a 3+ step task, todowrite lanes + delegate() first.
-Shorthand for this entire section — quote it when recalling the pipeline.
-
-**You are the orchestrator.** Your job is to plan, delegate, verify, and integrate. Prime never edits code EXCEPT applying spec-only lane output. Delegates are write-capable by default. Prefer steer over v2 re-dispatch.
+**You are the orchestrator.** Your job is to plan, delegate, verify, and integrate — never to code. Delegate ALL implementation work to subagents. Inline code changes pollute your context and break the learning loop.
 
 ### Delegation Rule — No Exceptions
 
@@ -392,7 +384,7 @@ Shorthand for this entire section — quote it when recalling the pipeline.
 
 ### Vision Delegation — Unconditional (no deliberation)
 
-If your model is text-only (cannot see images) and ANY image is present or relevant — a user image, an image path, a screenshot path from chrome-devtools/playwright, a tool-result image attachment, or a visual check ("looks right", "visible", "centered", "matches the design", "read this") — delegate to the `vision` subagent IMMEDIATELY. Do not ask, do not hesitate, do not infer from text first. Rule: text-only model + image = `vision` subagent.
+If your model is text-only (cannot see images) and ANY image is present or relevant — a user image, an image path, a screenshot path from chrome-devtools/playwright, a tool-result image attachment, or a visual check ("looks right", "visible", "centered", "matches the design", "read this") — delegate to the `vision` subagent IMMEDIATELY. Do not ask, do not weigh cost, do not infer from text first. Rule: text-only model + image = `vision` subagent.
 
 - Never use `vision` if your own model can see the images itself — if it can, just `read` the image and answer directly (integrated multimodality, no delegation).
 - The `vision` subagent is locked to read/grep/list/external_directory only (`"*": deny`); it cannot mutate anything.
@@ -408,35 +400,12 @@ How to delegate (mechanics):
 2. `task({ subagent_type: "vision", description: "<short visual task>", prompt: "Visual question: <user question verbatim>\nFiles: <id> -> <path>\nReturn: <exact JSON template or 'structured description'>" })` — give the smallest JSON template that answers the user, requiring evidence + an uncertainty field.
 3. When the subagent returns: RELAY its description VERBATIM as your final answer. Do not summarize, interpret, add commentary, or reason on top of it. The description IS the answer. Retry once only if the JSON is malformed.
 
-### Board-First Comms
-
-- Every dispatch prompt carries the prime root session id plus a `board_attach(root)`-first instruction; the attach preamble propagates to sub-delegates (each lane repeats it when sub-delegating).
-- Prime posts a charter per swarm; lanes post conclusions-only — never full traces (context sharding keeps prime context bounded; long prose stays in the delegation file, not prime context).
-- Handoffs are structured posts: `RoutingDecision{next_lane, reasoning}`.
-- Topic naming: `swarm/<swarm-id>/charter`, `swarm/<swarm-id>/<lane>`, `swarm/<swarm-id>/all`, `swarm/<swarm-id>/verdicts`.
-- HOLD/VETO posts are advisory-only — they never wake, resume, or approve any agent.
-- All lane traffic is attributable (`from`=session-id) and prime-visible; no lane-to-lane side channels.
-- `question()` approval gates are for destructive/high-impact acts only (short approve/disapprove).
-- Board topics are the ONLY lane channel — no file inboxes, no side channels.
-
-### Swarm as Unit of Dispatch
-
-- A swarm is named `swarm/<goal-slug>/<swarm-id>`; prime may run 2+ concurrent swarms per goal (e.g. research-swarm + implement-swarm + verify-swarm as separate swarms).
-- Nesting is capped at 2 levels below prime.
-- Parent goal covers all swarms and lanes — no nested goals. Todos live in prime; lane todos flip to completed when their output is INTEGRATED, not when the delegate returns.
-
-### Resource Evaluation Before Dispatch
-
-- Charter posted to the charter topic before dispatch: max workers (hard cap — never "as many as required").
-- Stop rules posted to the charter: max-turns, mention-termination.
-- UNIFORM MODEL: every worker uses the same model as prime — no model tiering per lane, no pinned model ids. Consistency comes from worker caps, not tiering.
-
 ### How to Delegate
 ```
 task(
   subagent_type: "executor",
   description: "Implement [feature]",
-  prompt: "Root: <prime root session id>. First: board_attach(root). Swarm: swarm/<goal-slug>/<swarm-id>. Task: [description]. Context: [files, constraints]. Skills: [skill names]. Charter: swarm/<swarm-id>/charter. Post conclusions-only to swarm/<swarm-id>/<lane>. Expected: envelope Status / Mutations / Edge-Cases / Deliverables."
+  prompt: "Task: [description]. Context: [files, constraints]. Skills: [skill names]. Expected: structured envelope with Status, Mutations, Edge-Cases, Deliverables."
 )
 ```
 
@@ -444,59 +413,42 @@ task(
 - Subagents start with EMPTY sessions — batch related work into single prompts
 - Load relevant skills before delegating — executor inherits skills you provide in the prompt
 - Executor has YOLO on edit/write/bash — verify results after delegation
-- Spawn up to the charter's max-workers cap — no artificial limit below it, never above it
+- Spawn as many concurrent subagents as the task requires — no artificial limit
 - Parallelize: multiple independent tasks → spawn multiple subagents simultaneously
 - Sequential dependencies: chain them — send the full sequence in one prompt
 - Parent goal covers all lanes, no nested goals. Todos live in prime.
 
 ### Dispatch Decision — delegate vs task vs async session
 
-PRIMARY: delegate() for all dispatch (full subagents, write-capable by default; push <task-notification> on completion, no polling). Fallback order: delegate() → async session (only when mid-task steering or an external driver needs it) → task() (single-lane blocking exception).
-Ceiling: delegate() workers are write-capable (edit/shell) but single-level: NO nested delegation. Executor via delegate() is the default for most tasks including code. Foreman fan-out needing nesting → async session (steerable) or in-tree task() chains. Async sessions otherwise reserved for extreme long-loop cases.
-Blocking-vs-fanout rule: task() blocks prime — use ONLY for a single lane you will await immediately while doing no other parallel work (one at a time, by exception). ANY 2+ lanes → N delegate() calls in one turn, always (even when every lane mutates code — use delegate with the executor agent).
-Known scope → delegate(); unknown path needing mid-flight guidance → async session.
+PRIMARY: opencode-background-agents plugin is the primary subagent delegation path. Fallback order: delegate() → opencode-mcp async session → file-mailbox.
 
 | Path | When | Blocks? | Write? | 2-way? | Readback |
 |---|---|---|---|---|---|
-| delegate(prompt, agent) | all dispatch (research + code; full subagents, write-capable by default) | no (ID immediately) | yes (full access unless BACKGROUND_AGENTS_STRICT_READONLY=1) | steer via delegation_steer | delegation_read(id) blocks to terminal; delegation_list(); push <task-notification>, never poll |
-| task(subagent_type) | single-lane blocking exception only (awaited immediately, no parallel work) | yes (halts prime, child in session tree) | yes (full access) | no | return value directly |
+| delegate(prompt, agent) | background research/analysis, read-only fan-out | no (ID immediately) | no (read-only agents) | no (fire-once-read-once) | delegation_read(id) blocks to terminal; delegation_list(); <task-notification> |
+| task(subagent_type) | mutations only (edit/write/bash) | yes (halts prime, child in session tree) | yes (full access) | no | return value directly |
 | opencode-mcp async session | steerable lanes needing mid-task guidance | no | yes (session agent) | yes via opencode_reply | opencode_wait / opencode_check / opencode_session_todo / opencode_conversation |
 
-- delegate: isolated session outside tree, per-task timeout (default 15 min, 0 = none), persists to ~/.local/share/opencode/delegations/*.md, done = push <task-notification> + <event>all-complete</event>. Write-capable by default (outside undo tree); STRICT_READONLY=1 opts into read-only.
-- Verdict: delegate pushes completion (no stall); async sessions must be polled (opencode_wait/check) and stall if prime ends its turn — use them only for steerable/external lanes.
-- Parallel code = N delegate() calls in one turn (non-blocking, push-notified); task() blocks prime — one at a time, by exception only.
+- delegate: isolated session outside tree, 15-min timeout, persists to ~/.local/share/opencode/delegations/*.md, done = <task-notification> + <event>all-complete</event>.
+- Verdict: delegate can't steer; sessions can (opencode_message_send_async(sessionId) + opencode_wait + opencode_reply).
 
-### Swarm Fan-Out Protocol (canonical)
+### Swarm Fan-Out Protocol
 
-This is the single dispatch protocol; §7b is a checklist pointing here, §7c adds only massive-scale extras.
-
-0. Board-by-default — complex task (3+ steps) → prime CREATES the board FIRST (own root = session id, or `board_attach` to a given root) BEFORE any dispatch. Charter post required; root id mandatory in every lane prompt via the attach-first preamble. Lanes MUST post: brief-received ACK, RESULT envelope mirror, ASK on blocker. Prime MUST post: charter, per-lane verdicts, integration evidence posted to board; update_goal evidence cites it. Exemption: simple/2-lane YAGNI tasks with ≤300-word envelopes need no board.
-
-1. Resource evaluation first — post max workers and stop rules (max-turns, mention-termination) to `swarm/<swarm-id>/charter`.
-2. Measure then divide — survey scope first, then todowrite lanes (2+ non-overlapping workstreams under parent goal, no shared files).
-3. Isolate code lanes — one checkout + branch per worker by default (create before dispatch, clean after merge); shared CWD only for read-only lanes.
-4. N delegate() lanes in one turn with brief files (`.opencode/swarm/briefs/<swarm-id>/<lane>.md` relative to repo-root CWD: goal + file list + interfaces to preserve + checks + envelope format) — async sessions only when mid-task steering is needed. Charter mirrored to board topic `swarm/<swarm-id>/charter` AND brief file `<swarm-id>/charter.md`. Templates: `~/.config/opencode/agents/references/` (`charter-template.md`, `lane-brief-template.md`).
-5. Prime continues own work while swarm runs — never idle-wait early. Supervise by polling `board_read`, not notifications only.
-6. Stale lane (no board post within N min set in the charter) → steer → kill → re-dispatch v2. Drop finished agents from memory.
-7. Wait for <task-notification> / all-complete.
-8. delegation_read(id) late (blocks to terminal) — synthesize, don't passthrough.
-9. Checkpoint update_goal(evidence). Envelope cap 300 words per lane. Commit after each verified step so runs survive restarts.
+1. todowrite lanes (2+ independent workstreams under parent goal).
+2. N delegate() calls in one turn (one per lane).
+3. Prime continues own work while swarm runs — never idle-wait early.
+4. Wait for <task-notification> / all-complete.
+5. delegation_read(id) late (blocks to terminal) — synthesize, don't passthrough.
+6. Checkpoint update_goal(evidence). Envelope cap 300 words per lane.
 
 ### Mid-Task Steering
 
-- delegate: prefer delegation_steer(id, message) (peek first for evidence; steer resets the timeout window) — re-delegate v2 only if steering misdirects.
+- delegate: no steering — re-delegate v2 with corrected prompt (same agent, new ID).
 - async session: opencode_reply(sessionId, follow-up) to steer; opencode_check / opencode_session_todo to monitor.
 
-### Restart / Handoff
+### Mailbox Fallback
 
-- Commits + briefs are the resume point — a killed run resumes from saved state, never from scratch.
-- Diagnose failures in a separate session, prepare a handoff, then re-dispatch workers to inspect saved changes, repair unfinished work, and continue.
-
-### Integration Queue
-
-- Prime is the serializer — merge one lane branch at a time, run per-branch checks before each merge, reject on contract failure.
-- Lanes commit in worktrees; prime never merges uncommitted work.
-- Lanes coordinate via board topics; prime integrates via branches.
+- Use when delegate/session path unavailable. Convention: .opencode/swarm/inbox-<agent>.json (prime writes) + .opencode/swarm/outbox-<agent>.json (subagent writes, polls via read). Alt: SQLite queue.
+- Schema: {"id":"","from":"","to":"","body":"","status":"pending|done","ts":""}
 
 ### Lane Envelope Template
 
@@ -505,7 +457,7 @@ This is the single dispatch protocol; §7b is a checklist pointing here, §7c ad
 ### MCP Swarm Stack
 
 - Primary: opencode-background-agents plugin (delegate / delegation_read / delegation_list).
-- Fallback order: delegate() → opencode-mcp async (opencode_fire / opencode_message_send_async / opencode_wait / opencode_reply / opencode_check).
+- Fallback order: delegate() → opencode-mcp async (opencode_fire / opencode_message_send_async / opencode_wait / opencode_reply / opencode_check) → file-mailbox above.
 - Optional: A2A-MCP-Server (uvx a2a-mcp-server, stdio) + mcacp (npx -y mcacp) + agentic-tmux (win32 WSL-only).
 - Optional a2a snippet (opencode.json → mcp):
 `{"a2a": {"type": "local", "command": ["uvx", "a2a-mcp-server"], "enabled": true}}`
@@ -526,49 +478,60 @@ Goal Plugin (@prevalentware/opencode-goal-plugin) tracks objectives across sessi
 
 When BLOCKED: update_goal(status: "unmet", blocker: "..."), then use question() to ask user. A blocked goal stops auto-continue too.
 
+## 7b. Swarm Playbook — Background-First Fan-Out (reusable)
+
+Prime is the ORCHESTRATOR — the brain that plans, splits, integrates, and verifies. Delegates are ARMS — parallel workers that finish faster together.
+Any 3+ step task with 2+ independent workstreams → fan out arms instead of doing it serially yourself.
+
+### Prime owns the goal, lanes own the work
+
+1. `create_goal(objective)` for anything 3+ steps. Parent goal covers all lanes — no nested goals.
+2. `todowrite` one todo per lane (2+ lanes). Lane todos flip to completed when their output is INTEGRATED, not when the delegate returns.
+3. Prime never idle-waits — do its own lane or prep work while the arms run.
+
+### Dispatch: `delegate()`, one per lane, one turn
+
+- `delegate(prompt, agent)` is non-blocking, returns an ID immediately. Fire all lanes in ONE turn (one call per lane). Background by default; `task(subagent_type=...)` BLOCKS prime — one at a time, by exception only.
+- Subagents start with EMPTY context. Every prompt carries: goal, exact scope, exact output format, effort budget. Never reference "earlier discussion".
+- Demand an envelope: `Status: / Mutations: / Edge-Cases: / Deliverables:` ≤300 words + location refs (`file:line` for code, section ref for prose). Long prose stays in the delegation file, not prime context.
+- Done = `<task-notification>` + `<event>all-complete</event>`. Then `delegation_read(id)` — it blocks to terminal. Never poll `delegation_list()`.
+
+### Lanes are domain-agnostic — split by workstream, not layer
+
+- Code fix → repro arm + fix arm + test arm; writing → research arm + draft arm + edit arm; research → parallel source-sweep arms + one synthesis pass.
+- QA arms run last: 2+ reviewer/critic delegates over the finished work, triage every finding (accept / fix / revert), then close the goal with evidence.
+
+### Delegate toolsets vary — verify each lane
+
+- Arms SOMETIMES mutate directly, SOMETIMES return specs for prime to apply. Never assume — read each result's Mutations.
+- Prime applies whatever the lane didn't, then verifies every arm with an artifact-appropriate check (below). Rule: background by default, verify every lane, blocking by exception.
+
+### Trust nothing — verify everything
+
+- Code: run the relevant tests/checks the repo defines — read the repo context file for which; never assume CI exists. If no CI/tests exist, read-back review the artifact.
+- Prose: read-back + requirements checklist. Research: spot-check sources against claims.
+- Repo-specific gates (CI, commit format, test bans) live in `AGENTS.md` / `.hermes.md` — read them before dispatching.
+
 ### Windows PowerShell survival
 
 - No `tail`, `head`, `sed`, `grep`, `&&` — PowerShell equivalents only. Always `git --no-pager` on diff/log/show/status so `less` never hangs.
 - Never `Get-Content -Wait` — poll logs with `Get-Content -Tail N` + `Start-Sleep` only if needed. Kill runaways before retrying.
-- Every mutation lane gets a log file + summary line; no summary after 10 min = failure — kill stray process, report, re-dispatch v2. Executors run detached via `Start-Process ... RedirectStandardOutput <log>` + Tail-poll, never synchronous.
 
-## 7b. Swarm Dispatch Checklist (thin — all rules live in §7)
+### Repo overrides
 
-1. Read the repo context file for bans/gates; deliver only the relevant area rules per lane.
-2. `create_goal(objective)` + board together (pairing invariant §3) for anything 3+ steps.
-3. `todowrite` one todo per lane, 2+ lanes (§7 Swarm as Unit of Dispatch).
-4. Post worker cap + stop rules to `swarm/<swarm-id>/charter` (§7 Resource Evaluation).
-5. `delegate()` one per lane, one turn, with root id + `board_attach(root)`-first + envelope demand (§7 How to Delegate).
-6. Verify every lane per §7 step 9 (frozen baseline, repo checks, repro on clean HEAD; prose read-back; research spot-check).
-7. PowerShell survival per §7 (detached logs, Tail-poll, kill-before-retry).
-8. Persist lessons — skill_update()/memory_save() what the swarm learned.
+- The repo context file wins for project-specific bans/gates. Prime reads it before dispatching lanes.
 
-## 7c. Massive-Scale Addendum (10+ workers)
+## 7c. Massive-Scale Orchestration Protocol
 
-Only extras beyond §7; the protocol itself is not redefined here.
-
-- One isolated checkout/worktree per worker — commit after each verified step so runs survive restarts.
+- Prime coordinates only — write assignments/scripts, read reports, integrate branches, run checks; never edit source files directly.
+- Measure then divide into N non-overlapping groups first — no shared files between lanes.
+- One isolated checkout per worker — commit after each verified step so runs survive restarts.
+- Written brief per lane carries goal, exact scope, interfaces to preserve, checks before commit — workers start with EMPTY context, never reference earlier discussion.
 - Machine-checkable contracts — interface schemas identical, CLI help output byte-for-byte, repro failures on clean main HEAD to prove pre-existing.
-- Frozen baseline established before dispatch; flag removed public names (external consumers may import despite zero in-repo callers) + guard mass rewrites — reviewer gate before merge.
-- Share language servers across checkouts, dedupe transports, drop finished agents from memory.
+- Allow multi-level tree — workers may sub-delegate slices; parent goal covers all lanes, no nested goals.
+- Flag removed public names (external consumers may import despite zero in-repo callers) + guard mass rewrites — reviewer gate before merge.
+- Scale guards — share language servers across checkouts, dedupe transports, drop finished agents from memory.
 - Keep prime unblocked — coordinate centrally, run tools in subprocesses, never bottleneck on local inference.
-
-## 7d. Skill-Lane Coordination
-
-Skill check before dispatch: run `skill_list` (BM25) for the task domain, declare `Skills: [...]` in every brief. Process-skills-first ladder: brainstorming/systematic-debugging set the approach, implementation skills carry it out. SUBAGENT-STOP analog: lanes post, only prime charters — lanes MUST NOT create boards, goals, or nested swarms. Announce pattern: prime announces board + charter topic at dispatch; each lane ACKs brief-receipt on its topic. Checklist→todos: brief checklist items become lane todos; prime flips a lane todo to completed only when its output is INTEGRATED. Terminal-state binding: envelope → integrate only; reviewer verdict → merge/revert only; no extra drift. Charter self-review (4-checks) before dispatch: placeholders filled, consistency with repo bans, scope bounded, no ambiguity in deliverables. One-way ratchet: lane count only grows mid-flight, never merges.
-Artifact rules: agents/references/artifact-rules.md; enforce with swarm-workspace.ps1 + check-envelope.ps1.
-
-Skill-handoff binding: when any process skill (brainstorming, systematic-debugging, etc.) completes, prime MUST run the triage binding (Step 0 / §7 goal+board rule) before implementation.
-Skill-shaped answers (explore→clarify→design) still land on goal, board, lanes, and delegate() fan-out — no process skill may bypass triage.
-
-Red flags — stop, you are rationalizing:
-
-| Thought | Reality |
-|---|---|
-| I'll do it myself | Delegate — prime plans, lanes execute |
-| One lane can do both | Split — non-overlapping lanes |
-| Skip the charter | Charter first — no dispatch without it |
-| Readback is enough | Board-mirror required — verdicts + evidence on board |
 
 ## 8. Context Files — Priority Loading
 

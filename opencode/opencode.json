@@ -7,15 +7,15 @@
     "opencode-scheduler",
     "context-mode",
     "opencode-acp",
-    "~/.config/opencode/plugins/opencode-vcc",
     "~/.config/opencode/plugins/opencode-hermes-memory",
     "~/.config/opencode/plugins/opencode-hermes-skills",
     "~/.config/opencode/plugins/opencode-hermes-vision",
     "~/.config/opencode/plugins/minimize-agent-browser",
-    "@prevalentware/opencode-goal-plugin",
+    "@prevalentware/opencode-goal-plugin@0.1.49",
     "opencode-autoresearch",
-    "opencode-ponytail",
-    "opencode-cache-hit"
+    "@dietrichgebert/ponytail",
+    "opencode-cache-hit",
+    "~/.config/opencode/plugins/shared-board"
   ],
   "agent": {
     "general": {
@@ -37,16 +37,16 @@
     "bladebro": {
       "type": "local",
       "enabled": true,
-      "command": ["bladebro", "mcp"],
+      "command": ["npx", "-y", "bladebro", "mcp"],
       "environment": {
         "CHROME_PATH": "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\Application\\thorium.exe",
         "BLADE_PROFILE_DIR": "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\User Data Agent"
       }
     },
-    "hound": {
+    "donsetch": {
       "type": "local",
       "enabled": true,
-      "command": ["hound"]
+      "command": ["npx", "-y", "donsetch", "mcp"]
     },
     "context7": {
       "type": "remote",
@@ -79,5 +79,9 @@
       "url": "http://localhost:3200/stocks/mcp"
     }
   },
-  "shell": "powershell"
+  "shell": "powershell",
+  "server": {
+    "port": 4096,
+    "hostname": "127.0.0.1"
+  }
 }

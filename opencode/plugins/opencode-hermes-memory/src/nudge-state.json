@@ -1,12 +1,41 @@
 {
-  "ses_016014cf4ffe7655RKbTL4awnV": {
-    "monotonicTurnCount": 29,
+  "ses_f5840c3cbffehAadZJItz2SZzO": {
+    "monotonicTurnCount": 144,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3",
+      "correction:msg_0ad27ea72001QQOVNgKTn4L5es"
+    ],
+    "lastNudgeTimestamp": 1789611482672,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53e191faffemlz3zlzHtubIAW": {
+    "monotonicTurnCount": 13,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
     "lastMemorySaveMonotonic": -1,
     "signalNudgeSent": [
       "correction:msg_dcp_summary_3a383bf5116bbbb3"
     ],
+    "lastNudgeTimestamp": 1789594115513,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53e02bbaffeQdpC2hFPlpijcH": {
+    "monotonicTurnCount": 5,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
     "lastNudgeTimestamp": 0,
     "lastMemorySearchMonotonic": -1,
     "lastSkillLoadMonotonic": -1,
@@ -14,7 +43,72 @@
     "skillLoadCount": 0,
     "taskCompletionCount": 0
   },
-  "ses_013941e6cffeHQ7Z5JiPzu3y8f": {
+  "ses_f53dcf7bcffevK7NnkrOiCEkhT": {
+    "monotonicTurnCount": 5,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53d3e7cdffeOB7zbVXpkak1WF": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53d12487ffeTHgGcfkn2cbKWO": {
+    "monotonicTurnCount": 5,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53cfb7e9ffeGtxl34vqZxjsa2": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53cb0343ffe9at751hgZP3TAR": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53c4ac26ffeyPvgJkXvE8TvGb": {
     "monotonicTurnCount": 6,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
@@ -27,7 +121,37 @@
     "skillLoadCount": 0,
     "taskCompletionCount": 0
   },
-  "ses_013940f7affemj6SMneE2lw4M9": {
+  "ses_f53c4ac08ffeVMIrxQYM8a5SpV": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53c4abe3ffekE3JbevUA2c2k7": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789596055483,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53c28ec2ffe2NqR6lPC2U5e7Y": {
     "monotonicTurnCount": 22,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
@@ -35,68 +159,317 @@
     "signalNudgeSent": [
       "correction:msg_dcp_summary_3a383bf5116bbbb3"
     ],
-    "lastNudgeTimestamp": 1786378007139,
+    "lastNudgeTimestamp": 1789596163738,
     "lastMemorySearchMonotonic": -1,
     "lastSkillLoadMonotonic": -1,
     "memorySearchCount": 0,
     "skillLoadCount": 0,
     "taskCompletionCount": 0
   },
-  "ses_01608e0e6fferEo3jVGKBtjj42": {
-    "monotonicTurnCount": 63,
+  "ses_f53bf00deffePYMnlT3vXEK3CC": {
+    "monotonicTurnCount": 61,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
     "lastMemorySaveMonotonic": -1,
     "signalNudgeSent": [
       "correction:msg_dcp_summary_3a383bf5116bbbb3"
     ],
-    "lastNudgeTimestamp": 1786392027685,
+    "lastNudgeTimestamp": 1789596391535,
     "lastMemorySearchMonotonic": -1,
     "lastSkillLoadMonotonic": -1,
     "memorySearchCount": 0,
     "skillLoadCount": 0,
     "taskCompletionCount": 0
   },
-  "ses_011b551d2ffepU4UVlJ6o4GbM2": {
-    "monotonicTurnCount": 126,
+  "ses_f53a4ec21ffeVhtFPewMdOPCwp": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_0ac5b13eb0010O4VN8nZ1dkIt4"
+    ],
+    "lastNudgeTimestamp": 1789598052124,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53a4764dffeVwTykXg057h7cs": {
+    "monotonicTurnCount": 10,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
     "lastMemorySaveMonotonic": -1,
     "signalNudgeSent": [
       "correction:msg_dcp_summary_3a383bf5116bbbb3"
     ],
-    "lastNudgeTimestamp": 1786409389167,
+    "lastNudgeTimestamp": 1789598115813,
     "lastMemorySearchMonotonic": -1,
     "lastSkillLoadMonotonic": -1,
     "memorySearchCount": 0,
     "skillLoadCount": 0,
     "taskCompletionCount": 0
   },
-  "ses_011990e6bffehprRm6GtERGG93": {
-    "monotonicTurnCount": 525,
+  "ses_f538cab80ffeoUzF6sAWoLR7to": {
+    "monotonicTurnCount": 6,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5389008affeE3Bn1RMVQDDEDj": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5384858fffezz3GRJH2F9fvMS": {
+    "monotonicTurnCount": 2,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5383afd5ffeOBMO3crrUyTHxB": {
+    "monotonicTurnCount": 6,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5383afc3ffe5OAZ1EtexiOIuC": {
+    "monotonicTurnCount": 17,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f537db7ecffeaeuI29Ew6z0DjB": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789600682628,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f537c51fdffezRIjGPZpjuet9b": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5379f2adffeqAGyDs5MhVLi1D": {
+    "monotonicTurnCount": 5,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5379f288ffezvVPdH19DyrhE4": {
+    "monotonicTurnCount": 5,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5379f268ffeMYEsctyq0H32Io": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53463469ffelHoSMYcV0Ns1R7": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f53432723ffeELLqMw4aiphwXl": {
+    "monotonicTurnCount": 10,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789604506744,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f531817e7ffeAD68HH5E4OWQ53": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52e1e21dfferXa7G9hk3ttkaP": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52e13ee1ffeFti5Q13h5JyAOV": {
+    "monotonicTurnCount": 1,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52df30e0ffeGmJhSmRqa0zxw6": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52dce99fffeJgcM2NjZLRwRNH": {
+    "monotonicTurnCount": 1,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52da08c0ffehXvveyeVj8V7ga": {
+    "monotonicTurnCount": 189,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
     "lastMemorySaveMonotonic": -1,
     "signalNudgeSent": [
       "correction:msg_dcp_summary_3a383bf5116bbbb3",
-      "correction:msg_fee77982c001izKo9P57zzULcY",
-      "correction:msg_fee8d1d42001IrwQx9n0ST4E1y",
-      "correction:msg_feeace17b001NYm8WNTBo7TQad",
-      "correction:msg_feeb0c838001S6P1LVHCUEx4i8",
-      "correction:msg_feeee827a001hvxwvRdRk6rOoF",
-      "correction:msg_feef02c34001lzC2rdSS9KPQSO",
-      "correction:msg_feef28b1e001KsfNXyfS6nYNdD",
-      "correction:msg_feef782ac001nIkJ2Jrgzuf5uH",
-      "correction:msg_feefd17b9001E75WPvyamcOW7Y"
+      "correction:msg_0adba6952001TsTCvvgZdeHiVv",
+      "correction:msg_0adbef594001fkYgGXYuynYAM2",
+      "correction:msg_0adc315e3001wbkvWPaV4EEWO6"
     ],
-    "lastNudgeTimestamp": 1786421002420,
+    "lastNudgeTimestamp": 1789621396152,
     "lastMemorySearchMonotonic": -1,
     "lastSkillLoadMonotonic": -1,
     "memorySearchCount": 0,
     "skillLoadCount": 0,
     "taskCompletionCount": 0
   },
-  "ses_011495fb3ffe9q2kMViBQMGfUf": {
+  "ses_f52d7b745ffezV9tW6hIxvqV3f": {
+    "monotonicTurnCount": 4,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52d69499ffeg3m3sK885PlBOx": {
     "monotonicTurnCount": 2,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
@@ -109,8 +482,8 @@
     "skillLoadCount": 0,
     "taskCompletionCount": 0
   },
-  "ses_011480939ffeEfG6s28I2kZ2tF": {
-    "monotonicTurnCount": 2,
+  "ses_f52d611beffe1KV5iNNcGQDv97": {
+    "monotonicTurnCount": 4,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
     "lastMemorySaveMonotonic": -1,
@@ -122,15 +495,743 @@
     "skillLoadCount": 0,
     "taskCompletionCount": 0
   },
-  "ses_009b1bb48ffel6fT0U1o6IhPxj": {
-    "monotonicTurnCount": 318,
+  "ses_f52d3da1cffeSv9mDlBb0F3C2E": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52d3da0bffeOQQTgL6f3IM4AO": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52d3d9fcffeCPvQHX1bPUSR5D": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52d209faffe3D6WvfwNxwRXuY": {
+    "monotonicTurnCount": 13,
     "lastNudgeMonotonic": 0,
     "toolCallCount": 0,
     "lastMemorySaveMonotonic": -1,
     "signalNudgeSent": [
       "correction:msg_dcp_summary_3a383bf5116bbbb3"
     ],
-    "lastNudgeTimestamp": 1786543980221,
+    "lastNudgeTimestamp": 1789611909493,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52d08626ffe9Qg9QUanMd7ErZ": {
+    "monotonicTurnCount": 2,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52d05280ffeggXJDHQYP9U0lG": {
+    "monotonicTurnCount": 2,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52ccbf60ffeRAdSt7NtgJU8D9": {
+    "monotonicTurnCount": 6,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52b9d0e2ffe4HMpzwlK06Arfp": {
+    "monotonicTurnCount": 5,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52b9d0ceffeWWQv2Ac6jXEBtu": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f529e1989ffeLtsT23TCZ6cTji": {
+    "monotonicTurnCount": 4,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f529c1cfbffeV2c0bQC4EJwSa7": {
+    "monotonicTurnCount": 16,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789615448257,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f529a3d4effeeL89HzSLBVD7ER": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5296a838ffeJK8xZAE6qDgHTr": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f528be13fffeJW9iN7Y67NJPsv": {
+    "monotonicTurnCount": 10,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789616525918,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52858789ffedQLNec66T0MrTx": {
+    "monotonicTurnCount": 19,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789616937235,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52836566ffe0d7pNuwS6cdeqI": {
+    "monotonicTurnCount": 4,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f527e8cd9ffeIfYV2Nws7Iip9Y": {
+    "monotonicTurnCount": 13,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f527a13f3ffee01sirvncY7V5p": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52794c94ffe60aTYB3R0EL8E4": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789617721587,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5273776bffefcTyJjtTnJJ3k3": {
+    "monotonicTurnCount": 6,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5272724bffefovzhqTZWVF3a0": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789618182523,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5270def8ffe9r8c5L90BT3LvF": {
+    "monotonicTurnCount": 4,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52706c10ffecIxO89TZutDu8F": {
+    "monotonicTurnCount": 6,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f526e5708ffeLmYQX4D3HdaU2G": {
+    "monotonicTurnCount": 1,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52689745ffebGLKBdxgCpOqT2": {
+    "monotonicTurnCount": 3,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52664e00ffeyWMTlXzb3VnjvR": {
+    "monotonicTurnCount": 6,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5264ef9effe7N7EK5bBpP8Ryh": {
+    "monotonicTurnCount": 10,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789619071852,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5263528fffeDcZKaoifGl14dB": {
+    "monotonicTurnCount": 4,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_0ad9cad780011luA7ZT1WVby2V"
+    ],
+    "lastNudgeTimestamp": 1789619127773,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5262db35ffe8JXJVvQKGGhFag": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52558e21ffeJNp0CEB35qLVl0": {
+    "monotonicTurnCount": 7,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5254558fffettlSoVrswOBaC2": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789620172232,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52528e71ffeQaLhrfvX3eZ1K3": {
+    "monotonicTurnCount": 5,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5245351dffem92ysGDTR3NlcF": {
+    "monotonicTurnCount": 1,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5237e1a8ffe0g1ea4j7X5Q355": {
+    "monotonicTurnCount": 62,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789622036762,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5233bc98ffe36CGvD42YbacB6": {
+    "monotonicTurnCount": 4,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f523335d2ffePjPXLkBp64p1Bu": {
+    "monotonicTurnCount": 5,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f52274bd2fferTy2jbbD9aPe7u": {
+    "monotonicTurnCount": 4,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f522657cfffewsidLU0jsQLbyA": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789623172941,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5224b400ffe1ch6V6HzhjijL9": {
+    "monotonicTurnCount": 8,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789623271025,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5220a547ffeep3KJEzkSpkKMD": {
+    "monotonicTurnCount": 87,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789623607266,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5210ce7cffeldE6BzS4GYpqvy": {
+    "monotonicTurnCount": 11,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f520f25d8ffeD8f5mw8INZY10X": {
+    "monotonicTurnCount": 12,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789624851535,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f520f25cbffeh9UoJiEhYaBxSa": {
+    "monotonicTurnCount": 11,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789624726827,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f520db051ffeUC0sGsOKmbU8Yp": {
+    "monotonicTurnCount": 22,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789624900237,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f520970a2ffeMAecM6157jGmNV": {
+    "monotonicTurnCount": 14,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789625146648,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f5203345cffelpXeKdxMTDgu8i": {
+    "monotonicTurnCount": 9,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f51fb8fdaffeFcvwGMQ1r761ce": {
+    "monotonicTurnCount": 48,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789625999209,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f51f8b7f1ffeOXIGmbD6Qdme1y": {
+    "monotonicTurnCount": 14,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789626274995,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f51f8b7d1ffe1s6YPC80w4v7Q7": {
+    "monotonicTurnCount": 11,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789626366633,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f51f2e2caffej54IOltK5fLHz0": {
+    "monotonicTurnCount": 2,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f51f257d2ffemjMwGXKPe7a7pC": {
+    "monotonicTurnCount": 9,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f4fc49e60ffeWAfo2q64kYuXuK": {
+    "monotonicTurnCount": 23,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [
+      "correction:msg_dcp_summary_3a383bf5116bbbb3"
+    ],
+    "lastNudgeTimestamp": 1789663124409,
+    "lastMemorySearchMonotonic": -1,
+    "lastSkillLoadMonotonic": -1,
+    "memorySearchCount": 0,
+    "skillLoadCount": 0,
+    "taskCompletionCount": 0
+  },
+  "ses_f4fb7cde3ffeR86hXSP2uRg1uC": {
+    "monotonicTurnCount": 6,
+    "lastNudgeMonotonic": 0,
+    "toolCallCount": 0,
+    "lastMemorySaveMonotonic": -1,
+    "signalNudgeSent": [],
+    "lastNudgeTimestamp": 0,
     "lastMemorySearchMonotonic": -1,
     "lastSkillLoadMonotonic": -1,
     "memorySearchCount": 0,
