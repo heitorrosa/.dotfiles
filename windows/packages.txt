@@ -21,6 +21,7 @@ file-converter
 powershell-core
 sysinternals
 geekuninstaller
+# pip install yt-dlp
 
 ghidra
 x64dgb
@@ -47,7 +48,7 @@ thorium
 discord
 spotify
 vscode
-opencode
+# opencode curl -fsSL https://opencode.ai/v2/install | bash
 
 hydralauncher
 steam

@@ -45,5 +45,3 @@ function Set-Buffer-Width-To-Screen-Width {
 
 clear
 fastfetch -c "C:\Users\Administrator\.files\windows\fastfetch\config.jsonc"
-
-gsudo -s
