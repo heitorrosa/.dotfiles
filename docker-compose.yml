@@ -1,0 +1,12 @@
+services:
+  stremio:
+    image: stremio/server:latest
+    container_name: stremio-server
+    restart: unless-stopped
+    ports:
+      - "11470:11470"
+      - "12470:12470"
+    volumes:
+      - C:/Users/Administrator/Downloads/stremio-data:/root/.stremio-server
+    environment:
+      - NO_CORS=1

@@ -44,4 +44,4 @@ function Set-Buffer-Width-To-Screen-Width {
 }
 
 clear
-fastfetch -c "C:\Users\Administrator\.files\windows\fastfetch\config.jsonc"
+fastfetch -c "C:\Users\Administrator\.dotfiles\windows\fastfetch\config.jsonc"

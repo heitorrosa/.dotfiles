@@ -303,7 +303,7 @@ keybindings:
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
 
-  - commands: ['shell-exec pwsh -NoExit -File C:\Users\Administrator\.files\windows\profile.ps1']
+  - commands: ['shell-exec pwsh -NoExit -File C:\Users\Administrator\.dotfiles\windows\profile.ps1']
     bindings: ['alt+enter']
 
   - commands: ['shell-exec C:\Program Files\Microsoft VS Code\Code.exe']
