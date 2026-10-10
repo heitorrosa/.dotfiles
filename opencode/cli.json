@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "session": {
+    "permissions": "prompt",
+    "image_preview": true,
+    "grouping": "auto",
+    "markdown": "rendered"
+  },
+  "animations": true
+}

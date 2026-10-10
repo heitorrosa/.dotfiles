@@ -1,0 +1,47 @@
+{
+  "name": "cache-hit-bar",
+  "version": "0.1.0",
+  "description": "OpenCode one-line status bar: per-request / session / sub-agent cache hit % + cost. Mounts prompt.footer.status on V2, app_bottom on V1.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "tui",
+    "status-bar",
+    "cache",
+    "cache-hit",
+    "cache-hit-rate",
+    "cost-tracking",
+    "sub-agent"
+  ],
+  "exports": {
+    ".": "./src/v2/server.ts",
+    "./tui": "./dist/tui.js"
+  },
+  "files": [
+    "index.ts",
+    "src",
+    "dist",
+    "tui.js",
+    "scripts"
+  ],
+  "scripts": {
+    "test": "bun test tests/",
+    "check": "bun test tests/",
+    "build": "bun run scripts/build-tui.ts",
+    "prepack": "bun run build"
+  },
+  "dependencies": {
+    "solid-js": "^1.9.0"
+  },
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=1.14.0",
+    "@opencode-ai/sdk": ">=1.14.0",
+    "@opentui/core": ">=0.2.0",
+    "@opentui/solid": ">=0.2.0"
+  },
+  "devDependencies": {
+    "@opentui/solid": "^0.4.5"
+  }
+}
