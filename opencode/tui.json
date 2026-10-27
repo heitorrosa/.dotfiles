@@ -1,6 +1,0 @@
-{
-  "plugin": [
-    "@prevalentware/opencode-goal-plugin",
-    "opencode-cache-hit"
-  ]
-}

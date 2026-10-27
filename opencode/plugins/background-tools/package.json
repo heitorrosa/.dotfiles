@@ -1,0 +1,9 @@
+{
+  "name": "background-tools",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "peerDependencies": {
+    "@opencode/plugin": ">=2.0.0"
+  }
+}

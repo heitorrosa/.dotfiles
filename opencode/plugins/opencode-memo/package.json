@@ -1,0 +1,1 @@
+{"main": "index.js", "name": "opencode-memo", "peerDependencies": {"@opencode/plugin": ">=2.0.0"}, "type": "module", "version": "3.0.0"}

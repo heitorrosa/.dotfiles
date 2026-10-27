@@ -7,6 +7,14 @@
     "@dietrichgebert/ponytail"
   ],
   "default_agent": "asuka",
+  "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    }
+  },
   "agents": {
     "general": {
       "permissions": [
@@ -37,7 +45,12 @@
     "servers": {
       "bladebro": {
         "type": "local",
-        "command": ["npx", "-y", "bladebro", "mcp"],
+        "command": [
+          "npx",
+          "-y",
+          "bladebro",
+          "mcp"
+        ],
         "environment": {
           "CHROME_PATH": "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\Application\\thorium.exe",
           "BLADE_PROFILE_DIR": "C:\\Users\\Administrator\\AppData\\Local\\Thorium\\User Data Agent"
@@ -45,7 +58,12 @@
       },
       "donsetch": {
         "type": "local",
-        "command": ["npx", "-y", "donsetch", "mcp"]
+        "command": [
+          "npx",
+          "-y",
+          "donsetch",
+          "mcp"
+        ]
       },
       "context7": {
         "type": "remote",
@@ -53,7 +71,11 @@
       },
       "sequential-thinking": {
         "type": "local",
-        "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
+        "command": [
+          "npx",
+          "-y",
+          "@modelcontextprotocol/server-sequential-thinking"
+        ]
       },
       "grep_app": {
         "type": "remote",
@@ -65,7 +87,24 @@
       },
       "mansa": {
         "type": "remote",
-        "url": "http://localhost:3200/stocks/mcp"
+        "url": "http://localhost:8080/stocks/mcp"
+      },
+      "memo": {
+        "type": "remote",
+        "url": "http://localhost:5000/mcp",
+        "headers": {
+          "Authorization": "Bearer pTFiIIPmN0usToWT4UAan5aB7hBJKH47Yyk4AltFR6o"
+        }
+      },
+      "mansa-wallet": {
+        "type": "remote",
+        "url": "http://localhost:8080/wallet/mcp",
+        "oauth": {
+          "client_id": "opencode",
+          "client_secret": "beb076742a3c4ff38eac6f4fb7acc525",
+          "callback_port": 19876,
+          "redirect_uri": "http://localhost:19876/callback"
+        }
       }
     }
   }
