@@ -1,9 +1,0 @@
-{
-  "name": "shared-board",
-  "version": "1.4.0",
-  "type": "module",
-  "main": "index.js",
-  "peerDependencies": {
-    "@opencode/plugin": ">=2.0.0"
-  }
-}

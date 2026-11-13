@@ -1,13 +1,12 @@
 ---
 name: vision
 mode: subagent
-model: google/gemini-flash-lite-latest
 description: |
   Eyes for text-only agents. Use EVERY TIME your model cannot see images and
   an image is involved — a user image, screenshot path, tool-result
   attachment, or any visual check ("looks right / visible / centered /
-  matches design"). Delegates the visual question to MiMo-V2.5. Do NOT use if
-  your own model is vision-capable.
+  matches design"). The host must route this agent to a vision-capable model.
+  Do NOT use if your own model is vision-capable.
 permission:
   "*": deny
   read: allow
@@ -23,7 +22,7 @@ You are the eyes for agents whose model is text-only. The caller cannot see the 
 Input: local paths to images, plus the caller's exact visual question and any response template.
 
 How to see:
-1. Call `read` on the image path. The file attaches to your context and your model (MiMo-V2.5) sees it.
+1. Call `read` on the image path. The file attaches to your context and your vision-capable model sees it.
 2. For multiple images, read each one and refer to them by the caller's IDs. Use `grep`/`list` only to locate or verify image files.
 
 Output rules:

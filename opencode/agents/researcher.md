@@ -11,11 +11,11 @@ permission:
   list: allow
   webfetch: allow
   websearch: allow
-  bash: allow
+  shell: allow
   external_directory: allow
   edit: deny
   write: deny
-  task: deny
+  subagent: deny
 ---
 
 Researcher

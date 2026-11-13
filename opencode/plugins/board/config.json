@@ -1,0 +1,20 @@
+{
+  "max_workers": 5,
+  "max_attempts": 2,
+  "stall_idle_ms": 300000,
+  "stall_board_ms": 600000,
+  "unattached_ms": 120000,
+  "admission_mode": "auto",
+  "nudge_mode": "quiet",
+  "nudge_after_ms": 180000,
+  "worktree_base": null,
+  "auto_remove_done": false,
+  "kill_stalled": false,
+  "worker_agent": "worker",
+  "await_verdict_ms": 300000,
+  "cadence_every_ms": 120000,
+  "cadence_every_calls": 2,
+  "rate_limit_per_min": 6,
+  "rate_limit_burst": 3,
+  "wake_cooldown_ms": 60000
+}
